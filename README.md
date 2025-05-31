@@ -64,4 +64,4 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 
 ## 📚 Credits
 Created by Louis Nguyen  
-Powered by Google Gemini APi
+Powered by Google Gemini API
