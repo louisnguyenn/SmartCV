@@ -34,31 +34,6 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 
 ---
 
-## 📂 Project Structure
-SmartCV/
-│
-├── client/ # React frontend
-│ ├── src/
-│ │ ├── components/ # UI components (Forms, ResumeViewer, etc.)
-│ │ ├── pages/ # Page views (Builder, Tailor, CoverLetter)
-│ │ ├── App.jsx
-│ ├── public/
-│ ├── package.json
-│
-├── server/ # Flask backend
-│ ├── app/
-│ │ ├── routes/ # Endpoints for resume, tailoring, cover letter
-│ │ ├── services/ # Gemini API & PDF utilities
-│ │ └── init.py
-│ ├── run.py
-│ ├── requirements.txt
-│
-├── .env # API keys and config
-├── README.md
-
-
----
-
 ## ⚙️ Getting Started
 
 ### 1. Clone the repo
