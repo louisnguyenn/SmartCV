@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { CreateResume } from "./pages/CreateResume";
-import { GenCoverLetter } from ".pages/GenCoverLetter";
-import { TailorResume } from ".pages/TailorResume";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { CreateResume } from './pages/CreateResume';
+import { GenCoverLetter } from '.pages/GenCoverLetter';
+import { TailorResume } from '.pages/TailorResume';
 
 function routes() {
 	return (
