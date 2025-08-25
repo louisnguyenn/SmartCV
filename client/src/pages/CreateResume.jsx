@@ -1,0 +1,6 @@
+export const CreateResume = () => {
+    return (
+        <>
+        </>
+    )
+}
