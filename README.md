@@ -38,15 +38,15 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 
 ### 1. Clone the repo
     ```bash
-    git clone https://github.com/your-username/tailortrack.git
-    cd tailortrack
+    git clone https://github.com/louisnguyenn/SmartCV.git
+    cd SmartCV
 
 ### 2. Set up the backend
     cd server
     python -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
     pip install -r requirements.txt
-    flask run
+    python3 app.py
 
 ### 3. Set up the frontend
     cd client
