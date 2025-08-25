@@ -14,17 +14,17 @@ function routes() {
 						element={<Home />}
 					/>
 					<Route
-						path="/"
+						path="/createresume"
 						element={<CreateResume />}
 					/>
 
 					<Route
-						path="/"
+						path="/gencoverletter"
 						element={<GenCoverLetter />}
 					/>
 
 					<Route
-						path="/"
+						path="/tailorresume"
 						element={<TailorResume />}
 					/>
 				</Routes>
