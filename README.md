@@ -1,6 +1,6 @@
 # 🧠 SmartCV
 
-An AI-powered web app that helps you **create**, **tailor**, and **polish** your resume and cover letter for any job posting. Built with React, Flask, and the Gemini API, TailorTrack makes job applications smarter and more personalized.
+An AI-powered web app that helps you **create**, **tailor**, and **polish** your resume and cover letter for any job posting. Built with React, Flask, and the Gemini API, SmartCV makes job applications smarter and more personalized, increasing your chances of landing a job.
 
 ---
 
@@ -28,9 +28,9 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 - Vite
 
 ### Backend
-- Flask (Python)
-- Gemini API (Google Generative Language API)
-- PDF generation (`pdfkit` / `react-pdf`)
+- Flask
+- Gemini API
+- PDF generation
 
 ---
 
@@ -64,4 +64,3 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 
 ## 📚 Credits
 Created by Louis Nguyen  
-Powered by Google Gemini API
