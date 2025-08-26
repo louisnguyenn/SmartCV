@@ -27,7 +27,16 @@ export const CreateResume = () => {
 		tools: '',
 
 		// Education
-		education: [{ school: '', degree: '', year: '', gpa: '', coursework: '', awards: '' }],
+		education: [
+			{
+				school: '',
+				degree: '',
+				year: '',
+				gpa: '',
+				coursework: '',
+				awards: '',
+			},
+		],
 
 		// Experience
 		experience: [
@@ -58,6 +67,16 @@ export const CreateResume = () => {
 	};
 
 	const addArrayItem = (section, template) => {
+		if (section === 'education') {
+			template = {
+				school: '',
+				degree: '',
+				year: '',
+				gpa: '',
+				coursework: '',
+				awards: '',
+			};
+		}
 		setFormData((prev) => ({
 			...prev,
 			[section]: [...prev[section], template],
@@ -71,7 +90,7 @@ export const CreateResume = () => {
 		}));
 	};
 
-	async function createResume(prompt) {
+	async function createResume(formData) {
 		const url =
 			'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' +
 			API_KEY;
@@ -79,9 +98,22 @@ export const CreateResume = () => {
 		try {
 			const response = await fetch(url, {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
+				headers: {
+					'Content-Type': 'application/json',
+				},
 				body: JSON.stringify({
-					contents: [{ parts: [{ text: JSON.stringify(formData) }] }],
+					contents: [
+						{
+							parts: [
+								{
+									text:
+										RESUME_PROMPT +
+										'\n\nForm data:\n' +
+										JSON.stringify(formData, null, 2),
+								},
+							],
+						},
+					],
 				}),
 			});
 
@@ -92,14 +124,34 @@ export const CreateResume = () => {
 		}
 	}
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log('Form Data:', formData);
+		try {
+			const response = await fetch(
+				'http://localhost:5000/api/resume/generate',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(formData),
+				}
+			);
 
-		// TODO: send details to backend
-		const prompt = ``;
-		createResume(prompt);
-		alert('Resume data submitted! Check console for details.');
+			const data = await response.json();
+			if (data.success) {
+				// TODO: Save the LaTeX to a file
+				// TODO: Send it to a LaTeX compiler service
+				// TODO: Display it in a preview
+
+				console.log('LaTeX generated:', data.latex);
+			} else {
+				throw new Error(data.error);
+			}
+		} catch (error) {
+			console.error('Error:', error);
+			alert('Failed to generate resume. Please try again.');
+		}
 	};
 
 	return (
@@ -412,11 +464,16 @@ export const CreateResume = () => {
 											</label>
 											<input
 												type="text"
-												value={formData.coursework}
+												value={edu.coursework} // Change from formData.coursework
 												onChange={(e) =>
-													handleInputChange('coursework', e.target.value)
+													handleArrayChange(
+														'education',
+														index,
+														'coursework',
+														e.target.value
+													)
 												}
-												placeholder="e.g., Data Structures, Web Development, Engineering Analysis, Object Oriented Programming"
+												placeholder="e.g., Data Structures, Web Development..."
 												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 											/>
 										</div>
@@ -427,11 +484,16 @@ export const CreateResume = () => {
 											</label>
 											<input
 												type="text"
-												value={formData.awards}
+												value={edu.awards} // Change from formData.awards
 												onChange={(e) =>
-													handleInputChange('awards', e.target.value)
+													handleArrayChange(
+														'education',
+														index,
+														'awards',
+														e.target.value
+													)
 												}
-												placeholder="e.g., Dean's List, Entrance Scholarship, President's Distinction, 2nd in GDSC Hacks"
+												placeholder="e.g., Dean's List, Entrance Scholarship..."
 												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 											/>
 										</div>
