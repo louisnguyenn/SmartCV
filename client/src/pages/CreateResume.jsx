@@ -505,7 +505,7 @@ export const CreateResume = () => {
 														e.target.value
 													)
 												}
-												placeholder="e.g., Data Structures, Web Development..."
+												placeholder="e.g., Data Structures, Web Development"
 												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 											/>
 										</div>
@@ -525,7 +525,7 @@ export const CreateResume = () => {
 														e.target.value
 													)
 												}
-												placeholder="e.g., Dean's List, Entrance Scholarship..."
+												placeholder="e.g., Dean's List, Entrance Scholarship"
 												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 											/>
 										</div>
@@ -679,7 +679,7 @@ export const CreateResume = () => {
 														)
 													}
 													rows="3"
-													placeholder="Describe your responsibilities, achievements, and impact..."
+													placeholder="Describe your responsibilities, achievements, and impact"
 													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 													required
 												/>
@@ -814,7 +814,7 @@ export const CreateResume = () => {
 														)
 													}
 													rows="3"
-													placeholder="Describe what the project does, your role, and key features..."
+													placeholder="Describe what the project does, your role, and key features"
 													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 													required
 												/>
