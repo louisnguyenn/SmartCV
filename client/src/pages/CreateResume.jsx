@@ -4,13 +4,9 @@ import {
 	Plus,
 	Minus,
 	User,
-	Mail,
-	Phone,
-	Linkedin,
 	GraduationCap,
 	Briefcase,
 	Award,
-  Github,
 } from 'lucide-react';
 
 export const CreateResume = () => {
@@ -106,7 +102,7 @@ export const CreateResume = () => {
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										First Name *
+										First Name <span className="text-red-500">*</span>
 									</label>
 									<input
 										type="text"
@@ -121,7 +117,7 @@ export const CreateResume = () => {
 
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										Last Name *
+										Last Name <span className="text-red-500">*</span>
 									</label>
 									<input
 										type="text"
@@ -136,8 +132,7 @@ export const CreateResume = () => {
 
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										<Mail className="inline h-4 w-4 mr-1" />
-										Email Address *
+										Email Address <span className="text-red-500">*</span>
 									</label>
 									<input
 										type="email"
@@ -150,8 +145,7 @@ export const CreateResume = () => {
 
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										<Phone className="inline h-4 w-4 mr-1" />
-										Phone Number *
+										Phone Number <span className="text-red-500">*</span>
 									</label>
 									<input
 										type="tel"
@@ -164,7 +158,6 @@ export const CreateResume = () => {
 
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										<Linkedin className="inline h-4 w-4 mr-1" />
 										LinkedIn Profile
 									</label>
 									<input
@@ -180,7 +173,6 @@ export const CreateResume = () => {
 
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										<Github className="inline h-4 w-4 mr-1" />
 										Github Profile
 									</label>
 									<input
@@ -207,7 +199,8 @@ export const CreateResume = () => {
 							<div className="space-y-4">
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										Programming Languages *
+										Programming Languages{' '}
+										<span className="text-red-500">*</span>
 									</label>
 									<input
 										type="text"
@@ -300,7 +293,8 @@ export const CreateResume = () => {
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
 											<label className="block text-sm font-medium text-gray-700 mb-2">
-												School/University *
+												School/University{' '}
+												<span className="text-red-500">*</span>
 											</label>
 											<input
 												type="text"
@@ -320,7 +314,7 @@ export const CreateResume = () => {
 
 										<div>
 											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Degree *
+												Degree <span className="text-red-500">*</span>
 											</label>
 											<input
 												type="text"
@@ -341,7 +335,7 @@ export const CreateResume = () => {
 
 										<div>
 											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Graduation Year
+												Graduation Year <span className="text-red-500">*</span>
 											</label>
 											<input
 												type="text"
@@ -356,6 +350,7 @@ export const CreateResume = () => {
 												}
 												placeholder="2024"
 												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+												required
 											/>
 										</div>
 
@@ -434,7 +429,7 @@ export const CreateResume = () => {
 										<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 											<div>
 												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Company *
+													Company <span className="text-red-500">*</span>
 												</label>
 												<input
 													type="text"
@@ -454,7 +449,7 @@ export const CreateResume = () => {
 
 											<div>
 												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Position *
+													Position <span className="text-red-500">*</span>
 												</label>
 												<input
 													type="text"
@@ -474,7 +469,7 @@ export const CreateResume = () => {
 
 											<div>
 												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Start Date
+													Start Date <span className="text-red-500">*</span>
 												</label>
 												<input
 													type="month"
@@ -488,12 +483,13 @@ export const CreateResume = () => {
 														)
 													}
 													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+													required
 												/>
 											</div>
 
 											<div>
 												<label className="block text-sm font-medium text-gray-700 mb-2">
-													End Date
+													End Date <span className="text-red-500">*</span>
 												</label>
 												<input
 													type="month"
@@ -508,13 +504,14 @@ export const CreateResume = () => {
 													}
 													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 													placeholder="Leave blank if current"
+													required
 												/>
 											</div>
 										</div>
 
 										<div>
 											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Description *
+												Description <span className="text-red-500">*</span>
 											</label>
 											<textarea
 												value={exp.description}
@@ -537,7 +534,6 @@ export const CreateResume = () => {
 							))}
 						</section>
 
-						{/* Projects */}
 						<section>
 							<div className="flex items-center justify-between mb-6">
 								<div className="flex items-center">
@@ -587,7 +583,7 @@ export const CreateResume = () => {
 										<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 											<div>
 												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Project Name *
+													Project Name <span className="text-red-500">*</span>
 												</label>
 												<input
 													type="text"
@@ -607,7 +603,7 @@ export const CreateResume = () => {
 
 											<div>
 												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Skills and Technologies Used *
+													Skills and Technologies Used <span className="text-red-500">*</span>
 												</label>
 												<input
 													type="text"
@@ -649,7 +645,7 @@ export const CreateResume = () => {
 
 										<div>
 											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Description *
+												Description <span className="text-red-500">*</span>
 											</label>
 											<textarea
 												value={project.description}
@@ -675,7 +671,7 @@ export const CreateResume = () => {
 						<div className="flex justify-end">
 							<button
 								type="submit"
-								className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition duration-200 cursor-pointer"
+								className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-emerald-700 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 cursor-pointer"
 							>
 								Create Resume
 							</button>

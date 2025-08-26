@@ -1,6 +1,6 @@
 export const CreateCoverLetter = () => {
-    return (
-        <>
-        </>
-    )
+  return (
+      <>
+      </>
+  )
 }
