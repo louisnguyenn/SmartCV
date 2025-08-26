@@ -88,7 +88,7 @@ export const CreateResume = () => {
 			<div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
 				<div className="bg-white shadow-lg rounded-lg overflow-hidden">
 					<div className="px-6 py-4 bg-emerald-600 text-white">
-						<h2 className="text-2xl font-bold">Build Your Resume</h2>
+						<h2 className="text-2xl font-bold">Create Your Resume</h2>
 						<p className="text-emerald-100">
 							Fill in your details to create a professional resume
 						</p>
@@ -333,7 +333,7 @@ export const CreateResume = () => {
 														e.target.value
 													)
 												}
-												placeholder="e.g., Bachelor of Computer Science"
+												placeholder="e.g., Bachelor of Computing, Computer Science"
 												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 												required
 											/>
@@ -607,7 +607,7 @@ export const CreateResume = () => {
 
 											<div>
 												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Technologies Used *
+													Skills and Technologies Used *
 												</label>
 												<input
 													type="text"
@@ -677,7 +677,7 @@ export const CreateResume = () => {
 								type="submit"
 								className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition duration-200 cursor-pointer"
 							>
-								Generate Resume
+								Create Resume
 							</button>
 						</div>
 					</div>
