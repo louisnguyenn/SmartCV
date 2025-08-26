@@ -10,7 +10,6 @@ import {
 	GraduationCap,
 	Briefcase,
 	Award,
-	FileText,
   Github,
 } from 'lucide-react';
 
@@ -23,9 +22,6 @@ export const CreateResume = () => {
 		phone: '',
 		linkedin: '',
 		address: '',
-
-		// Professional Summary
-		summary: '',
 
 		// Skills
 		languages: '',
@@ -676,7 +672,7 @@ export const CreateResume = () => {
 							))}
 						</section>
 
-						<div className="flex justify-end pt-6 border-t">
+						<div className="flex justify-end">
 							<button
 								type="submit"
 								className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition duration-200 cursor-pointer"
