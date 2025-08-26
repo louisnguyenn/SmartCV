@@ -1,13 +1,6 @@
 import { Navbar } from '../components/Navbar';
 import { useState } from 'react';
-import {
-	Plus,
-	Minus,
-	User,
-	Briefcase,
-	Award,
-	UserRoundPen,
-} from 'lucide-react';
+import { User, Briefcase, UserRoundPen } from 'lucide-react';
 
 export const CreateCoverLetter = () => {
 	const [formData, setFormData] = useState({
