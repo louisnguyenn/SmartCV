@@ -1,6 +1,13 @@
 import { Navbar } from '../components/Navbar';
 import { useState } from 'react';
-import { Plus, Minus, User, Briefcase, Award } from 'lucide-react';
+import {
+	Plus,
+	Minus,
+	User,
+	Briefcase,
+	Award,
+	UserRoundPen,
+} from 'lucide-react';
 
 export const CreateCoverLetter = () => {
 	const [formData, setFormData] = useState({
@@ -20,14 +27,15 @@ export const CreateCoverLetter = () => {
 		empaddress: '',
 		empcity: '',
 
+		// job description to tailor cover letter
 		jobdescription: [
 			{
 				description: '',
 			},
 		],
 
-		// Projects
-		projects: [{ name: '', technologies: '', description: '', link: '' }],
+		// personal description
+		description: [{ description: '' }],
 	});
 
 	const handleInputChange = (field, value) => {
@@ -292,11 +300,11 @@ export const CreateCoverLetter = () => {
 								</div>
 							</div>
 
-							{formData.jobdescription.map((exp, index) => (
+							{formData.jobdescription.map((jobdescription, index) => (
 								<div className="space-y-4">
 									<div>
 										<textarea
-											value={exp.description}
+											value={jobdescription.description}
 											onChange={(e) =>
 												handleArrayChange(
 													'jobdescription',
@@ -318,133 +326,31 @@ export const CreateCoverLetter = () => {
 						<section>
 							<div className="flex items-center justify-between mb-6">
 								<div className="flex items-center">
-									<Award className="h-5 w-5 text-emerald-600 mr-2" />
+									<UserRoundPen className="h-5 w-5 text-emerald-600 mr-2" />
 									<h3 className="text-lg font-semibold text-gray-900">
-										Projects
+										Personal Description
 									</h3>
 								</div>
-								<button
-									type="button"
-									onClick={() =>
-										addArrayItem('projects', {
-											name: '',
-											technologies: '',
-											description: '',
-											link: '',
-										})
-									}
-									className="flex items-center px-3 py-1 text-sm text-emerald-600 hover:text-emerald-700 cursor-pointer"
-								>
-									<Plus className="h-4 w-4 mr-1" />
-									Add Project
-								</button>
 							</div>
 
-							{formData.projects.map((project, index) => (
-								<div
-									key={index}
-									className="border border-gray-200 rounded-lg p-4 mb-4"
-								>
-									<div className="flex justify-between items-center mb-4">
-										<h4 className="font-medium text-gray-900">
-											Project {index + 1}
-										</h4>
-										{formData.projects.length > 1 && (
-											<button
-												type="button"
-												onClick={() => removeArrayItem('projects', index)}
-												className="text-red-600 hover:text-red-700"
-											>
-												<Minus className="h-4 w-4" />
-											</button>
-										)}
-									</div>
-
-									<div className="space-y-4">
-										<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-											<div>
-												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Project Name <span className="text-red-500">*</span>
-												</label>
-												<input
-													type="text"
-													value={project.name}
-													onChange={(e) =>
-														handleArrayChange(
-															'projects',
-															index,
-															'name',
-															e.target.value
-														)
-													}
-													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-													required
-												/>
-											</div>
-
-											<div>
-												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Skills and Technologies Used{' '}
-													<span className="text-red-500">*</span>
-												</label>
-												<input
-													type="text"
-													value={project.technologies}
-													onChange={(e) =>
-														handleArrayChange(
-															'projects',
-															index,
-															'technologies',
-															e.target.value
-														)
-													}
-													placeholder="e.g., React, Node.js, MongoDB"
-													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-													required
-												/>
-											</div>
-										</div>
-
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Project Link (GitHub, Demo, etc.)
-											</label>
-											<input
-												type="url"
-												value={project.link}
-												onChange={(e) =>
-													handleArrayChange(
-														'projects',
-														index,
-														'link',
-														e.target.value
-													)
-												}
-												placeholder="https://github.com/username/project"
-												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-											/>
-										</div>
-
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Description <span className="text-red-500">*</span>
-											</label>
-											<textarea
-												value={project.description}
-												onChange={(e) =>
-													handleArrayChange(
-														'projects',
-														index,
-														'description',
-														e.target.value
-													)
-												}
-												rows="3"
-												placeholder="Describe what the project does, your role, and key features..."
-												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-												required
-											/>
-										</div>
+							{formData.description.map((description, index) => (
+								<div className="space-y-4">
+									<div>
+										<textarea
+											value={description.description}
+											onChange={(e) =>
+												handleArrayChange(
+													'description',
+													index,
+													'description',
+													e.target.value
+												)
+											}
+											rows="3"
+											placeholder="Describe your major, school, what year you are, your goals, soft and technical skills, and personal projects (e.g. Participated in a Hackathon in a team of four)"
+											className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+											required
+										/>
 									</div>
 								</div>
 							))}
@@ -455,7 +361,7 @@ export const CreateCoverLetter = () => {
 								type="submit"
 								className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-emerald-700 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 cursor-pointer"
 							>
-								Create Resume
+								Create Cover Letter
 							</button>
 						</div>
 					</div>
