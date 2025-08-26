@@ -1,4 +1,4 @@
-export const TailorResume = () => {
+export const CreateCoverLetter = () => {
     return (
         <>
         </>

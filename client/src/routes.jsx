@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { CreateResume } from './pages/CreateResume';
-import { GenCoverLetter } from './pages/GenCoverLetter';
-import { TailorResume } from './pages/TailorResume';
+import { CreateCoverLetter } from "./pages/CreateCoverLetter";
+import { ATSScan } from "./pages/ATSScan";
 
 function routes() {
 	return (
@@ -16,12 +16,12 @@ function routes() {
 				element={<CreateResume />}
 			/>
 			<Route
-				path="/gencoverletter"
-				element={<GenCoverLetter />}
+				path="/createcoverletter"
+				element={<CreateCoverLetter />}
 			/>
 			<Route
-				path="/tailorresume"
-				element={<TailorResume />}
+				path="/atsscan"
+				element={<ATSScan />}
 			/>
 		</Routes>
 	);

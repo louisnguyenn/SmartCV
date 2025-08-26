@@ -1,4 +1,4 @@
-export const GenCoverLetter = () => {
+export const ATSScan = () => {
     return (
         <>
         </>

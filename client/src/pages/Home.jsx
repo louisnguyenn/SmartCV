@@ -23,7 +23,7 @@ export const Home = () => {
 					</div>
 				</Link>
 
-				<Link to="/gencoverletter">
+				<Link to="/createcoverletter">
 					<div className="w-64 h-64 border-2 border-emerald-600 bg-gray-50 rounded-2xl shadow-md flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 ease-in-out">
 						<FileSignature
 							size={48}
@@ -35,14 +35,14 @@ export const Home = () => {
 					</div>
 				</Link>
 
-				<Link to="/tailorresume">
+				<Link to="/atsscan">
 					<div className="w-64 h-64 border-2 border-emerald-600 bg-gray-50 rounded-2xl shadow-md flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 ease-in-out">
 						<Settings2
 							size={48}
 							className="text-emerald-600 mb-4"
 						/>
 						<h2 className="text-xl text-gray-700 text-center font-medium">
-							Tailor Resume
+							ATS Scan
 						</h2>
 					</div>
 				</Link>
