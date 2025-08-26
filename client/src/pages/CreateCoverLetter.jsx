@@ -1,13 +1,6 @@
 import { Navbar } from '../components/Navbar';
 import { useState } from 'react';
-import {
-	Plus,
-	Minus,
-	User,
-	GraduationCap,
-	Briefcase,
-	Award,
-} from 'lucide-react';
+import { Plus, Minus, User, Briefcase, Award } from 'lucide-react';
 
 export const CreateCoverLetter = () => {
 	const [formData, setFormData] = useState({
@@ -19,18 +12,16 @@ export const CreateCoverLetter = () => {
 		linkedin: '',
 		address: '',
 
-		// Skills
-		languages: '',
-		frameworks: '',
-		tools: '',
+		// Employer Info
+		empfirstName: '',
+		emplastName: '',
+		empcompany: '',
+		empposition: '',
+		empaddress: '',
+		empcity: '',
 
-		// Experience
-		experience: [
+		jobdescription: [
 			{
-				company: '',
-				position: '',
-				startDate: '',
-				endDate: '',
 				description: '',
 			},
 		],
@@ -185,6 +176,7 @@ export const CreateCoverLetter = () => {
 							</div>
 						</section>
 
+						{/* employers information */}
 						<section>
 							<div className="flex items-center mb-6">
 								<User className="h-5 w-5 text-emerald-600 mr-2" />
@@ -200,9 +192,9 @@ export const CreateCoverLetter = () => {
 									</label>
 									<input
 										type="text"
-										value={formData.firstName}
+										value={formData.empfirstName}
 										onChange={(e) =>
-											handleInputChange('firstName', e.target.value)
+											handleInputChange('empfirstName', e.target.value)
 										}
 										className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 										required
@@ -215,9 +207,9 @@ export const CreateCoverLetter = () => {
 									</label>
 									<input
 										type="text"
-										value={formData.lastName}
+										value={formData.emplastName}
 										onChange={(e) =>
-											handleInputChange('lastName', e.target.value)
+											handleInputChange('emplastName', e.target.value)
 										}
 										className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 										required
@@ -229,9 +221,11 @@ export const CreateCoverLetter = () => {
 										Company <span className="text-red-500">*</span>
 									</label>
 									<input
-										type="email"
-										value={formData.email}
-										onChange={(e) => handleInputChange('email', e.target.value)}
+										type="text"
+										value={formData.empcompany}
+										onChange={(e) =>
+											handleInputChange('empcompany', e.target.value)
+										}
 										className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 										required
 									/>
@@ -239,13 +233,16 @@ export const CreateCoverLetter = () => {
 
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										Company <span className="text-red-500">*</span>
+										Position <span className="text-red-500">*</span>
 									</label>
 									<input
-										type="tel"
-										value={formData.phone}
-										onChange={(e) => handleInputChange('phone', e.target.value)}
+										type="text"
+										value={formData.empposition}
+										onChange={(e) =>
+											handleInputChange('empposition', e.target.value)
+										}
 										className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+										placeholder="HR Assistant"
 										required
 									/>
 								</div>
@@ -255,184 +252,64 @@ export const CreateCoverLetter = () => {
 										Address <span className="text-red-500">*</span>
 									</label>
 									<input
-										type="url"
-										value={formData.linkedin}
+										type="text"
+										value={formData.empaddress}
 										onChange={(e) =>
-											handleInputChange('linkedin', e.target.value)
+											handleInputChange('empaddress', e.target.value)
 										}
 										placeholder="321 Great Canadian Road"
 										className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+										required
 									/>
 								</div>
 
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">
-										City, Province, Postal Code <span className="text-red-500">*</span>
+										City, Province, Postal Code{' '}
+										<span className="text-red-500">*</span>
 									</label>
 									<input
 										type="text"
-										value={formData.address}
+										value={formData.empcity}
 										onChange={(e) =>
-											handleInputChange('address', e.target.value)
+											handleInputChange('empcity', e.target.value)
 										}
 										placeholder="Ottawa, ON, L9U 3W1"
 										className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+										required
 									/>
 								</div>
 							</div>
 						</section>
 
-						{/* Experience */}
 						<section>
 							<div className="flex items-center justify-between mb-6">
 								<div className="flex items-center">
 									<Briefcase className="h-5 w-5 text-emerald-600 mr-2" />
 									<h3 className="text-lg font-semibold text-gray-900">
-										Work Experience
+										Job Description
 									</h3>
 								</div>
-								<button
-									type="button"
-									onClick={() =>
-										addArrayItem('experience', {
-											company: '',
-											position: '',
-											startDate: '',
-											endDate: '',
-											description: '',
-										})
-									}
-									className="flex items-center px-3 py-1 text-sm text-emerald-600 hover:text-emerald-700 cursor-pointer"
-								>
-									<Plus className="h-4 w-4 mr-1" />
-									Add Experience
-								</button>
 							</div>
 
-							{formData.experience.map((exp, index) => (
-								<div
-									key={index}
-									className="border border-gray-200 rounded-lg p-4 mb-4"
-								>
-									<div className="flex justify-between items-center mb-4">
-										<h4 className="font-medium text-gray-900">
-											Experience {index + 1}
-										</h4>
-										{formData.experience.length > 1 && (
-											<button
-												type="button"
-												onClick={() => removeArrayItem('experience', index)}
-												className="text-red-600 hover:text-red-700"
-											>
-												<Minus className="h-4 w-4" />
-											</button>
-										)}
-									</div>
-
-									<div className="space-y-4">
-										<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-											<div>
-												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Company <span className="text-red-500">*</span>
-												</label>
-												<input
-													type="text"
-													value={exp.company}
-													onChange={(e) =>
-														handleArrayChange(
-															'experience',
-															index,
-															'company',
-															e.target.value
-														)
-													}
-													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-													required
-												/>
-											</div>
-
-											<div>
-												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Position <span className="text-red-500">*</span>
-												</label>
-												<input
-													type="text"
-													value={exp.position}
-													onChange={(e) =>
-														handleArrayChange(
-															'experience',
-															index,
-															'position',
-															e.target.value
-														)
-													}
-													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-													required
-												/>
-											</div>
-
-											<div>
-												<label className="block text-sm font-medium text-gray-700 mb-2">
-													Start Date <span className="text-red-500">*</span>
-												</label>
-												<input
-													type="month"
-													value={exp.startDate}
-													onChange={(e) =>
-														handleArrayChange(
-															'experience',
-															index,
-															'startDate',
-															e.target.value
-														)
-													}
-													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-													required
-												/>
-											</div>
-
-											<div>
-												<label className="block text-sm font-medium text-gray-700 mb-2">
-													End Date <span className="text-red-500">*</span>
-												</label>
-												<input
-													type="month"
-													value={exp.endDate}
-													onChange={(e) =>
-														handleArrayChange(
-															'experience',
-															index,
-															'endDate',
-															e.target.value
-														)
-													}
-													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-													placeholder="Leave blank if current"
-													required
-												/>
-											</div>
-										</div>
-
-										<div>
-											<label className="block text-sm font-medium text-gray-700 mb-2">
-												Description <span className="text-red-500">*</span>
-											</label>
-											<textarea
-												value={exp.description}
-												onChange={(e) =>
-													handleArrayChange(
-														'experience',
-														index,
-														'description',
-														e.target.value
-													)
-												}
-												rows="3"
-												placeholder="Describe your responsibilities, achievements, and impact..."
-												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
-												required
-											/>
-										</div>
+							{formData.jobdescription.map((exp, index) => (
+								<div className="space-y-4">
+									<div>
+										<textarea
+											value={exp.description}
+											onChange={(e) =>
+												handleArrayChange(
+													'jobdescription',
+													index,
+													'description',
+													e.target.value
+												)
+											}
+											rows="3"
+											placeholder="Paste job description here"
+											className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+											required
+										/>
 									</div>
 								</div>
 							))}
