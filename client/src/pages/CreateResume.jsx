@@ -27,7 +27,7 @@ export const CreateResume = () => {
 		tools: '',
 
 		// Education
-		education: [{ school: '', degree: '', year: '', gpa: '' }],
+		education: [{ school: '', degree: '', year: '', gpa: '', coursework: '', awards: '' }],
 
 		// Experience
 		experience: [
@@ -71,7 +71,7 @@ export const CreateResume = () => {
 		}));
 	};
 
-	async function createResume(formData) {
+	async function createResume(prompt) {
 		const url =
 			'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' +
 			API_KEY;
@@ -97,7 +97,8 @@ export const CreateResume = () => {
 		console.log('Form Data:', formData);
 
 		// TODO: send details to backend
-		createResume(formData);
+		const prompt = ``;
+		createResume(prompt);
 		alert('Resume data submitted! Check console for details.');
 	};
 
@@ -404,6 +405,35 @@ export const CreateResume = () => {
 													className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
 												/>
 											</div>
+										</div>
+										<div className="mt-4">
+											<label className="block text-sm font-medium text-gray-700 mb-2">
+												Relevant Coursework
+											</label>
+											<input
+												type="text"
+												value={formData.coursework}
+												onChange={(e) =>
+													handleInputChange('coursework', e.target.value)
+												}
+												placeholder="e.g., Data Structures, Web Development, Engineering Analysis, Object Oriented Programming"
+												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+											/>
+										</div>
+
+										<div className="mt-4">
+											<label className="block text-sm font-medium text-gray-700 mb-2">
+												Scholarships and Awards
+											</label>
+											<input
+												type="text"
+												value={formData.awards}
+												onChange={(e) =>
+													handleInputChange('awards', e.target.value)
+												}
+												placeholder="e.g., Dean's List, Entrance Scholarship, President's Distinction, 2nd in GDSC Hacks"
+												className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+											/>
 										</div>
 									</div>
 								))}
