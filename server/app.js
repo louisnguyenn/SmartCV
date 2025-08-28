@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 const app = express();
 const corsOptions = {
@@ -9,7 +10,8 @@ const corsOptions = {
 // using the client local host to receive info from frontend
 app.use(cors(corsOptions));
 
-const API_KEY = import.meta.env.GEMINI_API_KEY;
+dotenv.config();
+const API_KEY = process.env.GEMINI_API_KEY;
 
 const RESUME_PROMPT = `
   __ASK__

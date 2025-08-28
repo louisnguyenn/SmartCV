@@ -1,5 +1,5 @@
 import { Navbar } from '../components/Navbar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { User, Briefcase, UserRoundPen } from 'lucide-react';
 import axios from 'axios';
 

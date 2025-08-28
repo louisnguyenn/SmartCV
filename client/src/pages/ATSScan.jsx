@@ -1,5 +1,6 @@
 import { Navbar } from '../components/Navbar';
 import axios from 'axios';
+import { useEffect } from "react";
 
 export const ATSScan = () => {
 	// checking backend health
