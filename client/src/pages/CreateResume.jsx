@@ -8,6 +8,7 @@ import {
 	Briefcase,
 	Award,
 } from 'lucide-react';
+import axios from 'axios';
 
 const RESUME_PROMPT = `
 	__ASK__
@@ -123,68 +124,9 @@ export const CreateResume = () => {
 		}));
 	};
 
-	async function createResume(formData) {
-		const url =
-			'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' +
-			API_KEY;
-
-		try {
-			const response = await fetch(url, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					contents: [
-						{
-							parts: [
-								{
-									text:
-										RESUME_PROMPT +
-										'\n\nForm data:\n' +
-										JSON.stringify(formData, null, 2),
-								},
-							],
-						},
-					],
-				}),
-			});
-
-			const data = await response.json();
-			return data;
-		} catch (err) {
-			console.error('Error:', err);
-		}
-	}
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		try {
-			const response = await fetch(
-				'http://localhost:5000/api/resume/generate',
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(formData),
-				}
-			);
-
-			const data = await response.json();
-			if (data.success) {
-				// TODO: Save the LaTeX to a file
-				// TODO: Send it to a LaTeX compiler service
-				// TODO: Display it in a preview
-
-				console.log('LaTeX generated:', data.latex);
-			} else {
-				throw new Error(data.error);
-			}
-		} catch (error) {
-			console.error('Error:', error);
-			alert('Failed to generate resume. Please try again.');
-		}
+		const response = await axios.get('https://localhost:3000');
 	};
 
 	return (
