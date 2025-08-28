@@ -2,15 +2,16 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "express": "^5.1.0"
   },

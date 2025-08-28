@@ -1,14 +1,17 @@
 import express from 'express';
-const app = express();
+import cors from 'cors';
 
-app.use(express.static('../client/build'));
-app.set('view engine', 'ejs');
+const app = express();
+const corsOptions = {
+	origin: ['https://localhost:5173'],
+};
+
+// using the client local host to receive info from frontend
+app.use(cors(CorsOptions));
 
 // method to download files
 // res.download('server.js');
 
-const userRouter = require('./routes/users');
-
-app.use('/users', userRouter);
+app.get('/api', (req, res) => {});
 
 app.listen(3000);
