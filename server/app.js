@@ -87,17 +87,17 @@ app.get('/', (req, res) => {
 	res.json({ message: 'Backend is running' });
 });
 
-app.get('/apu/createresume', (req, res) => {
+app.post('/api/createresume', (req, res) => {
 	console.log('Creating resume');
 	res.json({ message: 'Resume created' });
 });
 
-app.get('/api/createcoverletter', (req, res) => {
+app.post('/api/createcoverletter', (req, res) => {
 	console.log('Creating cover letter');
 	res.json({ message: 'Cover letter created' });
 });
 
-app.get('/api/atsscan', (req, res) => {
+app.post('/api/atsscan', (req, res) => {
 	console.log('Scanning');
 	res.json({ message: 'Scan completed' });
 });

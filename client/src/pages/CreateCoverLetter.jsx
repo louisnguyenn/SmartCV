@@ -1,6 +1,7 @@
 import { Navbar } from '../components/Navbar';
 import { useState } from 'react';
 import { User, Briefcase, UserRoundPen } from 'lucide-react';
+import axios from 'axios';
 
 export const CreateCoverLetter = () => {
 	const [formData, setFormData] = useState({
@@ -57,6 +58,31 @@ export const CreateCoverLetter = () => {
 			[section]: prev[section].filter((_, i) => i !== index),
 		}));
 	};
+
+	// checking backend health
+	async function fetchAPI() {
+		try {
+			const response = await axios.get('http://localhost:3000');
+			console.log(response.data);
+		} catch (error) {
+			console.error('Error fetching backend:', error);
+		}
+	}
+
+	async function fetchAPI() {
+		try {
+			const response = await axios.post(
+				'http://localhost:3000/api/createcoverletter'
+			);
+			console.log(response.data);
+		} catch (error) {
+			console.error('Error fetching backend:', error);
+		}
+	}
+
+	useEffect(() => {
+		fetchAPI();
+	}, []);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

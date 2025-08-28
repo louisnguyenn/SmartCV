@@ -89,7 +89,8 @@ export const CreateResume = () => {
 		}));
 	};
 
-	async function fetchBackend() {
+	// checking backend health
+	async function fetchAPI() {
 		try {
 			const response = await axios.get('http://localhost:3000');
 			console.log(response.data);
@@ -98,30 +99,26 @@ export const CreateResume = () => {
 		}
 	}
 
-	// start backend up 
+	async function fetchAPI() {
+		try {
+			const response = await axios.post(
+				'http://localhost:3000/api/createresume'
+			);
+			console.log(response.data);
+		} catch (error) {
+			console.error('Error fetching backend:', error);
+		}
+	}
+
+	// start backend up
 	useEffect(() => {
-		fetchBackend();
+		fetchAPI();
 	}, []);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		try {
-			fetchBackend();
-
-			const data = await response.json();
-			if (data.success) {
-				// TODO: Save the LaTeX to a file
-				// TODO: Send it to a LaTeX compiler service
-				// TODO: Display it in a preview
-
-				console.log('LaTeX generated:', data.latex);
-			} else {
-				throw new Error(data.error);
-			}
-		} catch (error) {
-			console.error('Error:', error);
-			alert('Failed to generate resume. Please try again.');
-		}
+		// calling backend when form is submitted
+		fetchBackend();
 	};
 
 	return (
