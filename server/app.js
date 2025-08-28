@@ -7,8 +7,9 @@ const corsOptions = {
 	origin: ['http://localhost:5173'],
 };
 
-// using the client local host to receive info from frontend
-app.use(cors(corsOptions));
+// middleware
+app.use(cors(corsOptions)); // using the client local host to receive info from frontend
+app.use(express.json()); // parsing json data
 
 dotenv.config();
 const API_KEY = process.env.GEMINI_API_KEY;
@@ -104,4 +105,6 @@ app.post('/api/atsscan', (req, res) => {
 	res.json({ message: 'Scan completed' });
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+	console.log('Server running on http://localhost:3000');
+});
