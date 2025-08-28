@@ -41,7 +41,7 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 
 ### 2. Set up the backend
     cd server
-    pip install -r requirements.txt
+    npm install
     npm run dev
 
 ### 3. Set up the frontend
