@@ -28,7 +28,7 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 - Vite
 
 ### Backend
-- Flask
+- Express.js
 - Gemini API
 - PDF generation
 
