@@ -9,12 +9,8 @@ app.get('/', (req, res) => {
 	// res.download('server.js');
 });
 
-app.get('/users', (req, res) => {
-	res.send('User List');
-});
+const userRouter = require('./routes/users');
 
-app.get('/users/new', (req, res) => {
-	res.send('User new form');
-});
+app.use('/users', userRouter);
 
 app.listen(3000);
