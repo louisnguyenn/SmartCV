@@ -298,7 +298,10 @@ export const CreateCoverLetter = () => {
 								</div>
 
 								{formData.jobdescription.map((jobdescription, index) => (
-									<div className="space-y-4">
+									<div
+										key={`job-${index}`}
+										className="space-y-4"
+									>
 										<div>
 											<textarea
 												value={jobdescription.description}
@@ -331,7 +334,10 @@ export const CreateCoverLetter = () => {
 								</div>
 
 								{formData.description.map((description, index) => (
-									<div className="space-y-4">
+									<div
+										key={`desc-${index}`}
+										className="space-y-4"
+									>
 										<div>
 											<textarea
 												value={description.description}
