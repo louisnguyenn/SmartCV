@@ -90,35 +90,46 @@ export const CreateResume = () => {
 	};
 
 	// checking backend health
-	async function fetchAPI() {
-		try {
-			const response = await axios.get('http://localhost:3000');
-			console.log(response.data);
-		} catch (error) {
-			console.error('Error fetching backend:', error);
-		}
-	}
+	// async function fetchAPI() {
+	// 	try {
+	// 		const response = await axios.get('http://localhost:3000');
+	// 		console.log(response.data);
+	// 	} catch (error) {
+	// 		console.error('Error fetching backend:', error);
+	// 	}
+	// }
 
-	async function fetchAPI() {
+	// useEffect(() => {
+	// 	fetchAPI();
+	// }, []);
+
+	const [createResume, setCreateResume] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const [success, setSuccess] = useState(false);
+
+	async function fetchAPI(formData) {
+		setLoading(true);
+		setSuccess(false);
+
 		try {
 			const response = await axios.post(
-				'http://localhost:3000/api/createresume'
+				'http://localhost:3000/api/createresume',
+				formData
 			);
 			console.log(response.data);
+			setCreateResume(response.data.resume);
+			setSuccess(true);
 		} catch (error) {
 			console.error('Error fetching backend:', error);
+		} finally {
+			setLoading(false);
 		}
 	}
-
-	// start backend up
-	useEffect(() => {
-		fetchAPI();
-	}, []);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// calling backend when form is submitted
-		fetchAPI();
+		fetchAPI(formData);
 	};
 
 	return (

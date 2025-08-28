@@ -46,14 +46,18 @@ export const CreateCoverLetter = () => {
 	};
 
 	// checking backend health
-	async function fetchAPI() {
-		try {
-			const response = await axios.get('http://localhost:3000');
-			console.log(response.data);
-		} catch (error) {
-			console.error('Error fetching backend:', error);
-		}
-	}
+	// async function fetchAPI() {
+	// 	try {
+	// 		const response = await axios.get('http://localhost:3000');
+	// 		console.log(response.data);
+	// 	} catch (error) {
+	// 		console.error('Error fetching backend:', error);
+	// 	}
+	// }
+
+	// 	useEffect(() => {
+	// 	fetchAPI();
+	// }, []);
 
 	async function fetchAPI() {
 		try {
@@ -65,10 +69,6 @@ export const CreateCoverLetter = () => {
 			console.error('Error fetching backend:', error);
 		}
 	}
-
-	useEffect(() => {
-		fetchAPI();
-	}, []);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

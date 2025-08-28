@@ -1,18 +1,22 @@
 import { Navbar } from '../components/Navbar';
 import axios from 'axios';
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export const ATSScan = () => {
 	// checking backend health
-	async function fetchAPI() {
-		try {
-			const response = await axios.get('http://localhost:3000');
-			console.log(response.data);
-		} catch (error) {
-			console.error('Error fetching backend:', error);
-		}
-	}
-	
+	// async function fetchAPI() {
+	// 	try {
+	// 		const response = await axios.get('http://localhost:3000');
+	// 		console.log(response.data);
+	// 	} catch (error) {
+	// 		console.error('Error fetching backend:', error);
+	// 	}
+	// }
+
+	// useEffect(() => {
+	// 	fetchAPI();
+	// }, []);
+
 	async function fetchAPI() {
 		try {
 			const response = await axios.post('http://localhost:3000/api/atsscan');
@@ -21,10 +25,6 @@ export const ATSScan = () => {
 			console.error('Error fetching backend:', error);
 		}
 	}
-
-	useEffect(() => {
-		fetchAPI();
-	}, []);
 
 	return (
 		<div className="min-h-screen bg-gray-50">
