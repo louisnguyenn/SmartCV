@@ -1,13 +1,11 @@
 const express = require('express');
 const app = express();
 
+app.use(express.static('../client/build'));
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-	res.render('index');
-	console.log('Here');
-	// res.download('server.js');
-});
+// method to download files
+// res.download('server.js');
 
 const userRouter = require('./routes/users');
 
