@@ -9,11 +9,11 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 - 📝 **Resume Builder**  
   Input your education, experience, skills, and instantly generate a professional resume.
 
-- 🎯 **Job Description Tailoring**  
-  Upload or paste a job posting and receive a tailored version of your resume that highlights relevant experience and keywords.
-
 - ✍️ **Cover Letter Generator**  
   Automatically create personalized cover letters based on your resume and a job description.
+
+- 🎯 **ATS Scanner**  
+  Scan your resume with an ATS scanner to check for important keywords and ensure it's formatted so computers can read it properly.
 
 - 📄 **Downloadable PDFs**  
   Export your resume and cover letter in clean, ATS-friendly formats.
@@ -25,12 +25,10 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 ### Frontend
 - React.js
 - Tailwind CSS
-- Vite
 
 ### Backend
 - Express.js
 - Gemini API
-- PDF generation
 
 ---
 
@@ -43,10 +41,8 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 
 ### 2. Set up the backend
     cd server
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
     pip install -r requirements.txt
-    python3 app.py
+    npm run dev
 
 ### 3. Set up the frontend
     cd client
@@ -54,13 +50,8 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
     npm run dev
 
 ## 🔑 Environment Variables
-    ```client/.env
-    VITE_API_BASE_URL=http://localhost:5000
-    VITE_GEMINI_API_KEY=your_gemini_api_key_here
-
     ```server/.env
     GEMINI_API_KEY=your_gemini_api_key_here
-    FLASK_ENV=development
 
 ## 📚 Credits
 Created by Louis Nguyen  
