@@ -9,7 +9,7 @@ const corsOptions = {
 // using the client local host to receive info from frontend
 app.use(cors(corsOptions));
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const API_KEY = import.meta.env.GEMINI_API_KEY;
 
 const RESUME_PROMPT = `
   __ASK__

@@ -118,7 +118,7 @@ export const CreateResume = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// calling backend when form is submitted
-		fetchBackend();
+		fetchAPI();
 	};
 
 	return (

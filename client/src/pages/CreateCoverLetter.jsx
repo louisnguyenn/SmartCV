@@ -45,20 +45,6 @@ export const CreateCoverLetter = () => {
 		}));
 	};
 
-	const addArrayItem = (section, template) => {
-		setFormData((prev) => ({
-			...prev,
-			[section]: [...prev[section], template],
-		}));
-	};
-
-	const removeArrayItem = (section, index) => {
-		setFormData((prev) => ({
-			...prev,
-			[section]: prev[section].filter((_, i) => i !== index),
-		}));
-	};
-
 	// checking backend health
 	async function fetchAPI() {
 		try {
@@ -86,10 +72,7 @@ export const CreateCoverLetter = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('Form Data:', formData);
-
-		// TODO: send details to backend
-		alert('Cover letter data submitted! Check console for details.');
+		fetchAPI();
 	};
 
 	return (
