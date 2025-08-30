@@ -94,7 +94,7 @@ async function createResume(formData) {
 		return generatedText || 'Resume generation failed';
 	} catch (err) {
 		console.error('❌ Gemini API Error:', err.response?.data || err.message);
-		throw new Error('Failed to generate resume with AI');
+		throw new Error('Failed to generate resume');
 	}
 }
 
