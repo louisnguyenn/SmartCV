@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import createResumeRoutes from "./routes/resumeRoutes";
-import createCoverLetterRoutes from "./routes/coverLetterRoutes";
-import atsScanRoutes from "./routes/atsRoutes";
+import resumeRoutes from "./routes/resumeRoutes.js";
+import coverLetterRoutes from "./routes/coverLetterRoutes.js";
+import atsRoutes from "./routes/atsRoutes.js";
 
 const app = express();
 const corsOptions = {
@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
 });
 
 // routes
-app.use('/api', createResumeRoutes);
-app.use('/api', createCoverLetterRoutes);
-app.use('/api', atsScanRoutes);
+app.use('/api', resumeRoutes);
+app.use('/api', coverLetterRoutes);
+app.use('/api', atsRoutes);
 
 app.listen(3000, () => {
 	console.log('Server running on http://localhost:3000');

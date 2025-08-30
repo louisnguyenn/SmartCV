@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { readFileSync } from 'fs';
 
 const API_KEY = process.env.GEMINI_API_KEY;
 const RESUME_PROMPT = readFileSync('./prompts/resume-prompt.txt', 'utf8');
@@ -7,7 +8,7 @@ const BAD_RESUME = readFileSync('./prompts/resume-bad-example.txt', 'utf8');
 const TEMPLATE_RESUME = readFileSync('./prompts/resume-template.txt', 'utf8');
 
 // create resume function (this function will callthe gemini api to create our resume)
-export async function createResume(formData) {
+export async function generateResume(formData) {
 	const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
 	try {

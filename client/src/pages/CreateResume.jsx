@@ -104,11 +104,9 @@ export const CreateResume = () => {
 	// }, []);
 
 	const [loading, setLoading] = useState(false);
-	const [downloadComplete, setDownloadComplete] = useState(false);
 
 	async function fetchAPI(formData) {
 		setLoading(true);
-		setDownloadComplete(false);
 
 		try {
 			const response = await axios.post(
@@ -135,7 +133,6 @@ export const CreateResume = () => {
 			window.URL.revokeObjectURL(url);
 
 			console.log('✅ Resume downloaded successfully');
-			setDownloadComplete(false);
 		} catch (error) {
 			console.error('Error fetching backend:', error);
 		} finally {
