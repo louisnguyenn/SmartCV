@@ -7,7 +7,7 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 ## ✨ Features
 
 - 📝 **Resume Builder**  
-  Input your education, experience, skills, and instantly generate a professional resume.
+  Input your education, experience, skills, and instantly generate a professional resume in LaTeX.
 
 - ✍️ **Cover Letter Generator**  
   Automatically create personalized cover letters based on your resume and a job description.
