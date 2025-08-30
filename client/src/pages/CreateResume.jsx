@@ -1,5 +1,5 @@
 import { Navbar } from '../components/Navbar';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
 	Plus,
 	Minus,
@@ -18,7 +18,7 @@ export const CreateResume = () => {
 		email: '',
 		phone: '',
 		linkedin: '',
-		address: '',
+		github: '',
 
 		// Skills
 		languages: '',
@@ -250,9 +250,9 @@ export const CreateResume = () => {
 										</label>
 										<input
 											type="text"
-											value={formData.address}
+											value={formData.github}
 											onChange={(e) =>
-												handleInputChange('address', e.target.value)
+												handleInputChange('github', e.target.value)
 											}
 											placeholder="https://github.com/username"
 											className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"

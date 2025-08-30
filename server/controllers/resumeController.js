@@ -7,7 +7,12 @@ export const createResume = async (req, res) => {
 
 	try {
 		const generatedResume = await generateResume(req.body); // calling createResume function and wait for the result
-		const createdFile = await createFile(res, generatedResume, req.body.firstName, req.body.lastName);
+		await createFile(
+			res,
+			generatedResume,
+			req.body.firstName,
+			req.body.lastName
+		);
 	} catch (error) {
 		console.error('❌ Error generating resume:', error);
 		res.status(500).json({

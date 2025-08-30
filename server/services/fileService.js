@@ -6,8 +6,7 @@ export function createFile(
 	firstName = 'Resume',
 	lastName = 'User'
 ) {
-	const fileName = `${firstName}_${lastName}
-	}_Resume.tex`;
+	const fileName = `${firstName}_${lastName}_Resume.tex`;
 
 	fs.writeFile(fileName, content, (writeErr) => {
 		if (writeErr) {
@@ -20,7 +19,7 @@ export function createFile(
 				console.error('Download error:', downloadErr);
 			} else {
 				fs.unlinkSync(fileName); // delete the generated file after it is downloaded
-				console.log(`✅ File ${fileName} downloaded and cleaned up`);
+				console.log(`File ${fileName} downloaded and cleaned up`);
 			}
 		});
 	});

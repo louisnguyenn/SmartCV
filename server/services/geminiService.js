@@ -1,11 +1,23 @@
 import axios from 'axios';
 import { readFileSync } from 'fs';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const API_KEY = process.env.GEMINI_API_KEY;
 const RESUME_PROMPT = readFileSync('./prompts/resume-prompt.txt', 'utf8');
 const GOOD_RESUME = readFileSync('./prompts/resume-good-example.txt', 'utf8');
 const BAD_RESUME = readFileSync('./prompts/resume-bad-example.txt', 'utf8');
 const TEMPLATE_RESUME = readFileSync('./prompts/resume-template.txt', 'utf8');
+
+// debug
+// console.log('Raw API Key value:', API_KEY);
+// console.log('API Key type:', typeof API_KEY);
+// console.log('API Key length:', API_KEY ? API_KEY.length : 'undefined');
+// console.log(
+//     'All environment variables:',
+//     Object.keys(process.env).filter((key) => key.includes('GEMINI'))
+// );
 
 // create resume function (this function will callthe gemini api to create our resume)
 export async function generateResume(formData) {

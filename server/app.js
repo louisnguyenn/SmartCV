@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import resumeRoutes from "./routes/resumeRoutes.js";
 import coverLetterRoutes from "./routes/coverLetterRoutes.js";
 import atsRoutes from "./routes/atsRoutes.js";
@@ -13,8 +12,6 @@ const corsOptions = {
 // middleware
 app.use(cors(corsOptions)); // using the client local host to receive info from frontend
 app.use(express.json()); // parsing json data
-
-dotenv.config();
 
 // health check
 app.get('/', (req, res) => {
