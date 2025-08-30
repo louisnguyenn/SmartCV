@@ -1,0 +1,236 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \textbf{Louis Nguyen}} \\ \vspace{1pt}
+    \small
+    226-929-8051 $|$ 
+    \href{mailto:lnguye25@uoguelph.ca}{\underline{lnguye25@uoguelph.ca}} $|$
+    \href{https://www.linkedin.com/in/louisnguyenn/}{\underline{linkedin.com/in/louisnguyenn}} $|$
+    \href{https://github.com/louisnguyenn}{\underline{github.com/louisnguyenn}} $|$
+    \href{https://www.louisnguyen.me}
+    {\underline{louisnguyen.me}}
+    \vspace{-8pt}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Guelph}{Expected: April 2029}
+      {Bachelor of Engineering, Engineering Systems and Computing}{Guelph, Ontario}
+      \resumeItemListStart
+        \resumeItem{\textbf{GPA: 3.84/4.0}, Dean's List, Recipient of \textbf{\$1000} Entrance Scholarship}
+        \resumeItem{\textbf{Relevant Coursework:} Programming, Web Design and Development, Software Design, Statistics, Linear Algebra}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+   \vspace{-16pt}
+   
+  %-----------SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C, Python, JavaScript, HTML/CSS, SQL, Bash} \\
+     \textbf{Technologies/Frameworks}{: React, Node.js, Express.js, Tailwind CSS, REST APIs, OpenCV, Flask, TensorFlow, Pandas, NumPy, Matplotlib, Seaborn, scikit-learn, Vercel} \\
+     \textbf{Developer/Design Tools}{: VS Code, Git, GitHub, Jupyter Notebook, Android Studio, Linux, Tmux, Adobe After Effects} }}
+ \end{itemize}
+ \vspace{-16pt}
+ 
+%-----------EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Linamar Corporation}{May 2025 -- August 2025}
+      {Senior CNC Machine Operator}{Guelph, Ontario}
+      \resumeItemListStart
+        \resumeItem{Achieved a production output of \textbf{122\%} by operating \textbf{4 CNC lathes}, each producing \textbf{1000+ Ford pinions} per shift.}
+        \resumeItem{Improved part production by \textbf{20\%} by increasing machine \textbf{feed rates}, reducing cycle times from \textbf{28.3} to \textbf{26.7 seconds}.}
+        \resumeItem{Trained an \textbf{inexperienced} operator to operate \textbf{4 CNC lathes}, achieving full independence within \textbf{two weeks}.}
+        \resumeItem{Calibrated \textbf{5} different \textbf{measurement instruments} with tolerances as tight as \textbf{±0.02mm} for quality compliance.}
+        \resumeItem{Collaborated with \textbf{6 machinists} to coordinate workflow, communicate production goals, and verify part quality.}
+    \resumeItemListEnd
+        
+    \resumeSubheading
+      {Linamar Corporation}{July 2024 -- August 2024}
+      {CNC Machine Operator}{Guelph, Ontario}
+      \resumeItemListStart
+        \resumeItem{Produced \textbf{450+ Chrysler sun gears} per shift by simultaneously operating \textbf{2 CNC lathes} and a \textbf{broach machine}.}
+        \resumeItem{Ensured parts met tight tolerance standards of \textbf{±0.05mm} by managing and replacing \textbf{4+ tooling} and \textbf{inserts}.}
+        \resumeItem{Achieved \textbf{150+} days of zero customer complaints by producing high-quality parts and rejecting defective products.}
+        \resumeItem{Recorded part measurements in \textbf{Operator Data Sheets} using \textbf{Microsoft Excel} to track quality assurance processes.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+    
+        \resumeProjectHeading
+          {\textbf{NextPlay} $|$ \emph{JavaScript, React, Tailwind CSS, Python, Flask, scikit-learn, Pandas}}{August 2025 -- September 2025}
+          \resumeItemListStart
+            \resumeItem{Built a responsive web app with \textbf{React}, \textbf{Bootstrap}, and \textbf{Spotify API} to display real-time album data by artist.}
+            \resumeItem{Integrated the \textbf{Gemini API} to build an interactive \textbf{chatbot} that recommends songs or artists based on user input.}
+          \resumeItemListEnd 
+
+        \vspace{-13pt}
+
+           \resumeProjectHeading
+        {\textbf{SmartCV} $|$ \emph{JavaScript, React, Tailwind CSS, Python, Flask, REST APIs, Gemini API, jsPDF}}{July 2025}
+        \resumeItemListStart
+            \resumeItem{Automated data preprocessing and augmentation using \textbf{Python}, \textbf{OpenCV}, and \textbf{Keras} for balanced model training.}
+            \resumeItem{Improved image classification accuracy by training a custom \textbf{CNN} with \textbf{TensorFlow} and \textbf{Keras} (\textbf{SeparableConv2D}, \textbf{BatchNormalization}, \textbf{Dropout}) on \textbf{275k+} histopathology images for enhanced model performance.}
+            \resumeItem{Evaluated model performance using \textbf{scikit-learn} for stats, confusion matrices, and visualized metrics with \textbf{Matplotlib}.}
+          \resumeItemListEnd
+
+        \vspace{-13pt}
+
+        \resumeProjectHeading
+        {\textbf{Percepta} $|$ \emph{JavaScript, React, Tailwind CSS, Python, Flask, OpenCV, REST APIs}}{August 2025}
+        \resumeItemListStart
+            \resumeItem{Developed a full-stack web application with \textbf{React}, \textbf{Tailwind CSS}, \textbf{Flask}, \textbf{Python}, and \textbf{OpenCV}, enabling real-time intrusion detection through webcam video analysis or uploaded recording, by integrating computer vision algorithms.}
+            \resumeItem{Engineered a backend with \textbf{Flask} and \textbf{Python}, enabling real-time processing of video streams for intrusion detection.}
+            \resumeItem{Created a \textbf{RESTful API} with \textbf{Flask-CORS} to allow secure communication between the backend and the frontend.}
+            \resumeItem{Designed an \textbf{intrusion logging} and \textbf{video recording} system, providing users with evidence for security incidents.}
+          \resumeItemListEnd
+
+            \vspace{-13pt}
+
+        \resumeProjectHeading
+        {\textbf{Electron Collision Predictor} $|$ \emph{Python, scikit-learn, NumPy, Pandas, Matplotlib, Seaborn, Jupyter Notebook}}{July 2025}
+        \resumeItemListStart
+            \resumeItem{Built a \textbf{linear regression model} to predict electron collision outcomes using \textbf{Python}, \textbf{Pandas}, and \textbf{scikit-learn}.}
+            \resumeItem{Analyzed and visualized data trends with \textbf{Matplotlib} and \textbf{Seaborn} to support model accuracy and interpretability.}
+            \resumeItem{Implemented a modular \textbf{Jupyter Notebook} environment for reproducible \textbf{exploratory data analysis (EDA)}.}
+          \resumeItemListEnd
+
+        \vspace{-13pt}
+
+          \resumeProjectHeading
+          {\textbf{FocusIn - GDSC Hacks 2025} $|$ \emph{JavaScript, HTML, CSS, Gemini API, Chrome Storage API}}{May 2025}
+          \resumeItemListStart
+            \resumeItem{Developed a \textbf{Chrome extension} using \textbf{JavaScript}, \textbf{HTML}, and \textbf{CSS} to block user-defined websites, leveraging the \textbf{Chrome Storage API} to persist settings and improve focus and productivity by reducing time spent on distractions.}
+            \resumeItem{Integrated the \textbf{Gemini API} to generate context-aware questions from user-uploaded \textbf{text files} or \textbf{PDF files}.}
+          \resumeItemListEnd 
+
+        \resumeSubHeadingListEnd
+\vspace{-16pt}
+ 
+\end{document}
