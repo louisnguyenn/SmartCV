@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import fs from 'fs';
+import { readFileSync } from 'fs';
 
 const app = express();
 const corsOptions = {
@@ -34,6 +35,7 @@ const RESUME_PROMPT = `
   - Each bullet point should be exactly one sentence long, enough characters to fill out the line of the resume
   - The words must be professional, impactful, and in past tense
   - Put the technical skills and any quantities in bold
+  - The resume must follow this order: start with Education, then Technical Skills, then Experience, and lastly Projects
   
   __GOOD_BULLETPOINT_EXAMPLE__
   - Achieved a production output of \textbf{122\%} by operating \textbf{4 CNC lathes}, each producing \textbf{1000+ Ford pinions} per shift.
@@ -46,11 +48,15 @@ const RESUME_PROMPT = `
   - Developed a game in Java to test the generated dungeons
   - Presented virtually to the World Conference on Computational Intelligence
   - Wrote an 8-page paper and gave multiple presentations on-campus
-  - Visualized GitHub data to show collaboration
+  - Visualized GitHub data to show collaboration  
 
-  __GOOD_RESUME_EXAMPLE__
-  
+  __RESUME_EXAMPLES__
+  I've provided a good resume example, bad resume example, and a template resume that you MUST follow. Refer to the good example resume but do not copy it. Some bullet points can be similar, but they should not be exact. Refer to the bad example resume to avoid bad bullet points and wrong section priorites.
 `;
+
+const GOOD_RESUME = readFileSync('./prompts/resume-good-example.txt', 'utf8');
+const BAD_RESUME = readFileSync('./prompts/resume-bad-example.txt', 'utf8');
+const TEMPLATE_RESUME = readFileSync('./prompts/resume-template.txt', 'utf8');
 
 // health check
 app.get('/', (req, res) => {
@@ -93,20 +99,7 @@ app.post('/api/createresume', async (req, res) => {
 	}
 });
 
-app.post('/api/createcoverletter', (req, res) => {
-	console.log('Creating cover letter');
-	res.json({ message: 'Cover letter created' });
-});
-
-app.post('/api/atsscan', (req, res) => {
-	console.log('Scanning');
-	res.json({ message: 'Scan completed' });
-});
-
-app.listen(3000, () => {
-	console.log('Server running on http://localhost:3000');
-});
-
+// create resume function (this function will callthe gemini api to create our resume)
 async function createResume(formData) {
 	const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
@@ -117,7 +110,7 @@ async function createResume(formData) {
 					parts: [
 						{
 							text:
-								RESUME_PROMPT +
+								RESUME_PROMPT + GOOD_RESUME + BAD_RESUME + TEMPLATE_RESUME +
 								'\n\nForm data:\n' +
 								JSON.stringify(formData, null, 2),
 						},
@@ -138,5 +131,16 @@ async function createResume(formData) {
 	}
 }
 
-// method to download files
-// res.download('server.js');
+app.post('/api/createcoverletter', (req, res) => {
+	console.log('Creating cover letter');
+	res.json({ message: 'Cover letter created' });
+});
+
+app.post('/api/atsscan', (req, res) => {
+	console.log('Scanning');
+	res.json({ message: 'Scan completed' });
+});
+
+app.listen(3000, () => {
+	console.log('Server running on http://localhost:3000');
+});
