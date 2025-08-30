@@ -1,9 +1,8 @@
-import express from 'express';
 
-const router = express.Router();
+
 
 // creating resume
-router.post('/createresume', async (req, res) => {
+export const createResume = async (req, res) => {
 	console.log('Creating resume with data:', req.body);
 
 	try {
@@ -35,6 +34,4 @@ router.post('/createresume', async (req, res) => {
 			message: 'Resume creation failed',
 		});
 	}
-});
-
-export default router;
+};

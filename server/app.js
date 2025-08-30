@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import createResumeRoutes from "./routes/createResumeRoutes";
-import createCoverLetterRoutes from "./routes/createCoverLetterRoutes";
-import atsScanRoutes from "./routes/atsScanRoutes";
+import createResumeRoutes from "./routes/resumeRoutes";
+import createCoverLetterRoutes from "./routes/coverLetterRoutes";
+import atsScanRoutes from "./routes/atsRoutes";
 
 const app = express();
 const corsOptions = {
