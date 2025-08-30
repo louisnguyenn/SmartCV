@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import axios from 'axios';
 
 const app = express();
 const corsOptions = {
@@ -33,56 +34,19 @@ const RESUME_PROMPT = `
   - The words must be professional, impactful, and in past tense
   - Put the technical skills and any quantities in bold
   
-  __GOOD_EXAMPLE__
+  __GOOD_BULLETPOINT_EXAMPLE__
   - Achieved a production output of \textbf{122\%} by operating \textbf{4 CNC lathes}, each producing \textbf{1000+ Ford pinions} per shift.
   - Improved part production by \textbf{20\%} by increasing machine \textbf{feed rates}, reducing cycle times from \textbf{28.3} to \textbf{26.7 seconds}.
   - Automated data preprocessing and augmentation using \textbf{Python}, \textbf{OpenCV}, and \textbf{Keras} for balanced model training.
   - Engineered a backend with \textbf{Flask} and \textbf{Python}, enabling real-time processing of video streams for intrusion detection.
   - Built a \textbf{linear regression model} to predict electron collision outcomes using \textbf{Python}
 
-  __BAD_EXAMPLE__
+  __BAD_BULLETPOINT_EXAMPLE__
   - Developed a game in Java to test the generated dungeons
   - Presented virtually to the World Conference on Computational Intelligence
   - Wrote an 8-page paper and gave multiple presentations on-campus
   - Visualized GitHub data to show collaboration
 `;
-
-// async function createResume(formData) {
-// 	const url =
-// 		'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' +
-// 		API_KEY;
-
-// 	try {
-// 		const response = await fetch(url, {
-// 			method: 'POST',
-// 			headers: {
-// 				'Content-Type': 'application/json',
-// 			},
-// 			body: JSON.stringify({
-// 				contents: [
-// 					{
-// 						parts: [
-// 							{
-// 								text:
-// 									RESUME_PROMPT +
-// 									'\n\nForm data:\n' +
-// 									JSON.stringify(formData, null, 2),
-// 							},
-// 						],
-// 					},
-// 				],
-// 			}),
-// 		});
-
-// 		const data = await response.json();
-// 		return data;
-// 	} catch (err) {
-// 		console.error('Error:', err);
-// 	}
-// }
-
-// method to download files
-// res.download('server.js');
 
 // health check
 app.get('/', (req, res) => {
@@ -90,9 +54,27 @@ app.get('/', (req, res) => {
 	res.json({ message: 'Backend is running' });
 });
 
-app.post('/api/createresume', (req, res) => {
-	console.log('Creating resume');
-	res.json({ message: 'Resume created' });
+// creating resume
+app.post('/api/createresume', async (req, res) => {
+	console.log('Creating resume with data:', req.body);
+
+	try {
+		const generatedResume = await createResume(req.body); // calling createResume function and wait for the result
+
+		res.json({
+			success: true,
+			resume: generatedResume, // send the generated resume to the frontend
+			receivedData: req.body,
+			message: 'Resume created successfully',
+		});
+	} catch (error) {
+		console.error('❌ Error generating resume:', error);
+		res.status(500).json({
+			success: false,
+			error: 'Failed to generate resume',
+			message: 'Resume creation failed',
+		});
+	}
 });
 
 app.post('/api/createcoverletter', (req, res) => {
@@ -108,3 +90,37 @@ app.post('/api/atsscan', (req, res) => {
 app.listen(3000, () => {
 	console.log('Server running on http://localhost:3000');
 });
+
+async function createResume(formData) {
+	const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+
+	try {
+		const response = await axios.post(url, {
+			contents: [
+				{
+					parts: [
+						{
+							text:
+								RESUME_PROMPT +
+								'\n\nForm data:\n' +
+								JSON.stringify(formData, null, 2),
+						},
+					],
+				},
+			],
+		});
+
+		const data = response.data;
+
+		// extract the generated text from Gemini's response
+		const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+		return generatedText || 'Resume generation failed';
+	} catch (err) {
+		console.error('❌ Gemini API Error:', err.response?.data || err.message);
+		throw new Error('Failed to generate resume with AI');
+	}
+}
+
+// method to download files
+// res.download('server.js');
