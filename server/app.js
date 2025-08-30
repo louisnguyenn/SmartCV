@@ -19,7 +19,7 @@ const API_KEY = process.env.GEMINI_API_KEY;
 
 const RESUME_PROMPT = `
   __ASK__
-  Create a resume in the provided LaTeX resume template using the form data provided.
+  Create a completely unique resume in the provided LaTeX resume template using the form data provided.
 
   __CONTEXT__
   - You are building a LaTex resume based off the form data provided by the user
@@ -36,6 +36,8 @@ const RESUME_PROMPT = `
   - The words must be professional, impactful, and in past tense
   - Put the technical skills and any quantities in bold
   - The resume must follow this order: start with Education, then Technical Skills, then Experience, and lastly Projects
+  - Fill as much white space as you can in the resume. Ensure all bullet points are exact one sentence long to avoid white space at the end of the sentence
+  - Ensure all spelling and punctuation is correct and all bullet points is clear and easy to understand
   
   __GOOD_BULLETPOINT_EXAMPLE__
   - Achieved a production output of \textbf{122\%} by operating \textbf{4 CNC lathes}, each producing \textbf{1000+ Ford pinions} per shift.
@@ -51,7 +53,7 @@ const RESUME_PROMPT = `
   - Visualized GitHub data to show collaboration  
 
   __RESUME_EXAMPLES__
-  I've provided a good resume example, bad resume example, and a template resume that you MUST follow. Refer to the good example resume but do not copy it. Some bullet points can be similar, but they should not be exact. Refer to the bad example resume to avoid bad bullet points and wrong section priorites.
+  I've provided a good resume example, bad resume example, and a template resume that you MUST follow. Refer to the good example resume but do not copy it. Some bullet points can be similar, but they should not be exact. Ensure that this resume is completely unique, not using any references from the internet and not copying from my good resume and/or bad resume example. Refer to the bad example resume to avoid bad bullet points and wrong section priorites.
 `;
 
 const GOOD_RESUME = readFileSync('./prompts/resume-good-example.txt', 'utf8');

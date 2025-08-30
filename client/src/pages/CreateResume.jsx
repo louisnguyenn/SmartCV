@@ -104,19 +104,38 @@ export const CreateResume = () => {
 	// }, []);
 
 	const [loading, setLoading] = useState(false);
-	const [success, setSuccess] = useState(false);
+	const [downloadComplete, setDownloadComplete] = useState(false);
 
 	async function fetchAPI(formData) {
 		setLoading(true);
-		setSuccess(false);
+		setDownloadComplete(false);
 
 		try {
 			const response = await axios.post(
 				'http://localhost:3000/api/createresume',
-				formData
+				formData,
+				{ responseType: 'blob' }
 			);
+
 			console.log(response.data);
-			setSuccess(true);
+
+			// create download
+			const url = window.URL.createObjectURL(new Blob([response.data]));
+			const link = document.createElement('a');
+			link.href = url;
+			link.setAttribute(
+				'download',
+				`${formData.firstName || 'Resume'}_${
+					formData.lastName || 'User'
+				}_Resume.tex`
+			);
+			document.body.appendChild(link);
+			link.click();
+			link.remove();
+			window.URL.revokeObjectURL(url);
+
+			console.log('✅ Resume downloaded successfully');
+			setDownloadComplete(false);
 		} catch (error) {
 			console.error('Error fetching backend:', error);
 		} finally {
@@ -771,9 +790,10 @@ export const CreateResume = () => {
 							<div className="flex justify-end">
 								<button
 									type="submit"
+									disabled={loading}
 									className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-emerald-700 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 cursor-pointer"
 								>
-									Create Resume
+									{loading ? 'Generating...' : 'Create Resume'}
 								</button>
 							</div>
 						</div>
