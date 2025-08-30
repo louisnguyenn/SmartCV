@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import axios from 'axios';
+import fs from 'fs';
 
 const app = express();
 const corsOptions = {
@@ -46,6 +47,9 @@ const RESUME_PROMPT = `
   - Presented virtually to the World Conference on Computational Intelligence
   - Wrote an 8-page paper and gave multiple presentations on-campus
   - Visualized GitHub data to show collaboration
+
+  __GOOD_RESUME_EXAMPLE__
+  
 `;
 
 // health check
@@ -60,12 +64,24 @@ app.post('/api/createresume', async (req, res) => {
 
 	try {
 		const generatedResume = await createResume(req.body); // calling createResume function and wait for the result
+		const fileName = `${req.body.firstName || 'Resume'}_${
+			req.body.lastName || 'User'
+		}_Resume.tex`;
 
-		res.json({
-			success: true,
-			resume: generatedResume, // send the generated resume to the frontend
-			receivedData: req.body,
-			message: 'Resume created successfully',
+		fs.writeFile(fileName, generatedResume, (writeErr) => {
+			if (writeErr) {
+				console.error('Error writing file:', writeErr);
+				return res.status(500).json({ error: 'Failed to create file' });
+			}
+
+			res.download(fileName, fileName, (downloadErr) => {
+				if (downloadErr) {
+					console.error('Download error:', downloadErr);
+				} else {
+					fs.unlinkSync(fileName); // delete the generated file after it is downloaded
+					console.log(`✅ File ${fileName} downloaded and cleaned up`);
+				}
+			});
 		});
 	} catch (error) {
 		console.error('❌ Error generating resume:', error);

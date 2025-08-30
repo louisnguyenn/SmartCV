@@ -103,7 +103,6 @@ export const CreateResume = () => {
 	// 	fetchAPI();
 	// }, []);
 
-	const [createResume, setCreateResume] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
 
@@ -117,7 +116,6 @@ export const CreateResume = () => {
 				formData
 			);
 			console.log(response.data);
-			setCreateResume(response.data.resume);
 			setSuccess(true);
 		} catch (error) {
 			console.error('Error fetching backend:', error);
