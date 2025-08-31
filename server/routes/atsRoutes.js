@@ -1,10 +1,8 @@
 import express from 'express';
+import { atsScan } from "../controllers/atsController.js";
 
 const router = express.Router();
 
-router.post('/atsscan', (req, res) => {
-	console.log('Scanning');
-	res.json({ message: 'Scan completed' });
-});
+router.post('/atsscan', atsScan);
 
 export default router;
