@@ -1,10 +1,8 @@
 import express from 'express';
+import { createCoverLetter } from "../controllers/coverLetterController.js";
 
 const router = express.Router();
 
-router.post('/createcoverletter', (req, res) => {
-	console.log('Creating cover letter');
-	res.json({ message: 'Cover letter created' });
-});
+router.post('/createcoverletter', createCoverLetter);
 
 export default router;

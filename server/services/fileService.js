@@ -3,10 +3,10 @@ import fs from 'fs';
 export function createFile(
 	res,
 	content,
+	fileName,
 	firstName = 'Resume',
 	lastName = 'User'
 ) {
-	const fileName = `${firstName}_${lastName}_Resume.tex`;
 
 	fs.writeFile(fileName, content, (writeErr) => {
 		if (writeErr) {
