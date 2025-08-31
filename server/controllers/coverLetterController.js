@@ -8,7 +8,7 @@ export const createCoverLetter = async (req, res) => {
 		'utf8'
 	);
 	const COVER_LETTER_BAD_EXAMPLE = readFileSync(
-		'./prompts/coverletter-good-example.txt',
+		'./prompts/coverletter-bad-example.txt',
 		'utf8'
 	);
 	const COVER_LETTER_PROMPT = readFileSync(

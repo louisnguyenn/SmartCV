@@ -132,7 +132,7 @@ export const CreateResume = () => {
 			link.remove();
 			window.URL.revokeObjectURL(url);
 
-			console.log('✅ Resume downloaded successfully');
+			console.log('Resume downloaded successfully');
 		} catch (error) {
 			console.error('Error fetching backend:', error);
 		} finally {
