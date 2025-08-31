@@ -1,0 +1,24 @@
+Louis Nguyen
+226-929-8051 | lnguye25@uoguelph.ca | linkedin.com/in/louisnguyenn | github.com/louisnguyenn
+
+Ms. Sandra Oh
+HR Specialist
+Magnet Forensics
+555 Great Canadian Way
+Ottawa, ON, L9U 3W4
+
+July 3, 2025
+
+Dear Sandra Oh,
+
+As a second-year Software Engineering co-op student at the University of Guelph, I am excited to learn about your mission of empowering law enforcement with technology, and I am eager to contribute to that purpose with my skills in software development and problem-solving. I am thrilled to apply for the Software Developer position at Magnet Forensics.
+
+Throughout my degree, I have developed a range of technical skills through my education and my personal projects that will help me succeed in this role. I have experience in building full-stack applications using JavaScript, React, Bootstrap, and implementing APIs. Recently, I participated in a hackathon and built a project called FocusIn, a Chrome extension that blocks distractions and generates study questions from uploaded files or lecture slides. Working in a team of four, we were able to build this project in two days by leveraging strong communication and teamwork. I have also created a personal project called Gemify, a music search platform that displays albums based on the artist and a chatbot to recommend music based on user input. I applied my problem-solving skills and my passion for continuous learning to pick up a new framework and build this project from scratch. In my academic project, I worked in a team of four to conduct a data analysis on job vacancies in Canada. We followed the Agile methodology of weekly meetings and updates, ensuring we met our project milestones on time. In the upcoming Fall semester, I will be taking an Object-Oriented Programming course, where I will learn key concepts such as algorithm design, class libraries, user defined objects, inheritance, modularity, generic code, components, collections and containers, and design methodologies.
+
+Beyond my academics, my work experience as a Senior CNC Operator at Linamar Corporation has refined my problem-solving and team collaboration skills in a fast-paced and high-pressure environment. This helped me develop strong communication, collaboration, and accountability skills, while gaining experience in streamlined environments. It showed that maintaining workflow and understanding each stage of the operation is critical to ensuring quality of the product. I am comfortable with working in a collaborative environment and asking questions to ensure that the team stays aligned and the final product meets quality expectations. 
+
+I would appreciate the opportunity to discuss further about this role and how I can bring my skills, energy, and curiosity to the Magnet Forensics team. Thank you for your time and consideration.
+
+Sincerely,
+
+Louis Nguyen

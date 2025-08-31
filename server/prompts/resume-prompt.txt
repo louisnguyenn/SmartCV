@@ -6,7 +6,7 @@
   - You are going to help build this resume for a job posting that the user will apply to after building this resume
 
   __CONSTRAINTS__
-  - The output must be in LateX
+  - Only use LaTex syntax to create this resuem
   - Do not change any of the existing comments already in the template
   - You must follow the template, do not add any additional headers and columns
   - Do not change the formatting and margins of the template
@@ -18,6 +18,7 @@
   - The resume must follow this order: start with Education, then Technical Skills, then Experience, and lastly Projects
   - Fill as much white space as you can in the resume. Ensure all bullet points are exact one sentence long to avoid white space at the end of the sentence
   - Ensure all spelling and punctuation is correct and all bullet points is clear and easy to understand
+  - In the projects section, it is not required to add the date
   
   __GOOD_BULLETPOINT_EXAMPLE__
   - Achieved a production output of \textbf{122\%} by operating \textbf{4 CNC lathes}, each producing \textbf{1000+ Ford pinions} per shift.

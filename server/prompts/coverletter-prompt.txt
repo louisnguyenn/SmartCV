@@ -1,0 +1,30 @@
+  __ASK__
+  Create a completely unique cover letter using the information from the form data and by following the format.
+
+  __CONTEXT__
+  You are going to create a cover letter taliored towards the description of a job posting. You are required to mention any skills and projects that relate to the job posting to increase the chances of getting hired. You are going to help the canadidate to be qualified to get this job.
+
+  __CONSTRAINTS__
+  - Spelling and punctuation must be clear and understandable
+  - You must use the personal and employer's information from the form data to create the header and the sub header
+  - The employer's information must be in this structure:
+    Name
+    Position/Role at the company
+    Company Name
+    Address
+    City, Province, Postal code
+  - You must refer to the example cover letter and follow the structure closely
+  - The cover letter must be unique and should not be a copy of the example cover letter
+  - The cover letter must start with Dear and end with Sincerely
+  - The cover letter must have 3 paragraphs, an introduction, body, and concluding paragraph.
+  - Try to relate the skills, projects, and personal experiences to the job posting/job description if possible
+  - Use the job description to help build an effective cover letter that would increase the chances of getting hired
+
+  __EXAMPLE_INTRODUCTION_PARAGRAPH__
+  As a second-year Software Engineering co-op student at the University of Guelph, I am excited to learn about your mission of empowering law enforcement with technology, and I am eager to contribute to that purpose with my skills in software development and problem-solving. I am thrilled to apply for the Software Developer position at Magnet Forensics.
+
+  __EXAMPLE_BODY_PARAGRAPH__
+  Throughout my degree, I have developed a range of technical skills through my education and my personal projects that will help me succeed in this role. I have experience in building full-stack applications using JavaScript, React, Bootstrap, and implementing APIs. Recently, I participated in a hackathon and built a project called FocusIn, a Chrome extension that blocks distractions and generates study questions from uploaded files or lecture slides. Working in a team of four, we were able to build this project in two days by leveraging strong communication and teamwork. I have also created a personal project called Gemify, a music search platform that displays albums based on the artist and a chatbot to recommend music based on user input. I applied my problem-solving skills and my passion for continuous learning to pick up a new framework and build this project from scratch. In my academic project, I worked in a team of four to conduct a data analysis on job vacancies in Canada. We followed the Agile methodology of weekly meetings and updates, ensuring we met our project milestones on time. In the upcoming Fall semester, I will be taking an Object-Oriented Programming course, where I will learn key concepts such as algorithm design, class libraries, user defined objects, inheritance, modularity, generic code, components, collections and containers, and design methodologies.
+
+  __EXAMPLE_CONCLUDING_PARAGRAPH__
+  I would appreciate the opportunity to discuss further about this role and how I can bring my skills, energy, and curiosity to the Magnet Forensics team. Thank you for your time and consideration.
