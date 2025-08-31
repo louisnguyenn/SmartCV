@@ -1,3 +1,5 @@
+__RESUME_GOOD_EXAMPLE__
+
 %-------------------------
 % Resume in Latex
 % Author : Jake Gutierrez

@@ -8,11 +8,11 @@
   - Spelling and punctuation must be clear and understandable
   - You must use the personal and employer's information from the form data to create the header and the sub header
   - The employer's information must be in this structure:
-    Name
-    Position/Role at the company
-    Company Name
-    Address
-    City, Province, Postal code
+      Name
+      Position/Role at the company
+      Company Name
+      Address
+      City, Province, Postal code
   - You must refer to the example cover letter and follow the structure closely
   - The cover letter must be unique and should not be a copy of the example cover letter
   - The cover letter must start with Dear and end with Sincerely
@@ -23,7 +23,23 @@
   - Use shorter paragraphs (one tech-focused, one focused on transferable (soft) skills)
   - Avoid beginning all sentences with the word “I” – this is very common but reads as too self-focused
   - Avoid lack of detail when describing a technical project (e.g., no indication of languages used, complexity of the project, testing, development cycle used if team project)
-  - Avoid incoherent or rambling sentences that ultimately say nothing (i.e., no skill or experience is addressed)  
+  - Avoid incoherent or rambling sentences that ultimately say nothing (i.e., no skill or experience is addressed)
+
+  Be Concise: 
+  Keep it to one page, recognize your reader’s time.  
+  Have you read the job description and made connections with your skills/knowledge?   
+  Tech First; Always!  
+  In your second paragraph, discuss your technical skills that relate to this role – either through past work, school or personal projects  
+  Give specific examples: Used X to design Y to do Z.  
+  Be Consistent:  
+  Your font, font size, and formatting should remain consistent with your resume to ensure a professional and polished impression.
+  Vary sentence structure:  
+  Avoid beginning every sentence or paragraph with the word “I.”  
+  Don’t overuse connectors such as “furthermore,” “thus,” “moreover,” etc.  
+  Be descriptive and to the point – no long block paragraphs.  
+  Proofread:  
+  Triple check your spelling and grammar.  
+  Have a second pair of fresh eyes look your application over.   
 
   __EXAMPLE_INTRODUCTION_PARAGRAPH__
   As a second-year Software Engineering co-op student at the University of Guelph, I am excited to learn about your mission of empowering law enforcement with technology, and I am eager to contribute to that purpose with my skills in software development and problem-solving. I am thrilled to apply for the Software Developer position at Magnet Forensics.
