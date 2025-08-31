@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { readFileSync } from 'fs';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -42,7 +41,7 @@ export async function fetchGemini(
 
 		return generatedText || 'Content generation failed';
 	} catch (err) {
-		console.error('❌ Gemini API Error:', err.response?.data || err.message);
+		console.error('Gemini API Error:', err.response?.data || err.message);
 		throw new Error('Failed to generate content');
 	}
 }

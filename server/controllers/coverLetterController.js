@@ -1,5 +1,6 @@
 import { fetchGemini } from '../services/geminiService.js';
 import { createFile } from '../services/fileService.js';
+import { readFileSync } from 'fs';
 
 export const createCoverLetter = async (req, res) => {
 	const COVER_LETTER_EXAMPLE = readFileSync(
@@ -23,7 +24,7 @@ export const createCoverLetter = async (req, res) => {
 		); // calling createResume function and wait for the result
 		await createFile(res, generatedCoverLetter, fileName);
 	} catch (error) {
-		console.error('❌ Error generating resume:', error);
+		console.error('Error generating resume:', error);
 		res.status(500).json({
 			success: false,
 			error: 'Failed to generate resume',
