@@ -3,8 +3,12 @@ import { createFile } from '../services/fileService.js';
 import { readFileSync } from 'fs';
 
 export const createCoverLetter = async (req, res) => {
-	const COVER_LETTER_EXAMPLE = readFileSync(
-		'./prompts/coverletter-example.txt',
+	const COVER_LETTER_GOOD_EXAMPLE = readFileSync(
+		'./prompts/coverletter-good-example.txt',
+		'utf8'
+	);
+	const COVER_LETTER_BAD_EXAMPLE = readFileSync(
+		'./prompts/coverletter-good-example.txt',
 		'utf8'
 	);
 	const COVER_LETTER_PROMPT = readFileSync(
@@ -18,8 +22,8 @@ export const createCoverLetter = async (req, res) => {
 		const generatedCoverLetter = await fetchGemini(
 			req.body,
 			COVER_LETTER_PROMPT,
-			COVER_LETTER_EXAMPLE,
-			'',
+			COVER_LETTER_GOOD_EXAMPLE,
+			COVER_LETTER_BAD_EXAMPLE,
 			''
 		);
 		await createFile(res, generatedCoverLetter, fileName);

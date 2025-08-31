@@ -18,7 +18,12 @@
   - The cover letter must start with Dear and end with Sincerely
   - The cover letter must have 3 paragraphs, an introduction, body, and concluding paragraph.
   - Try to relate the skills, projects, and personal experiences to the job posting/job description if possible
+  - Read the description carefully, paying close attention to the qualifications requested. 
   - Use the job description to help build an effective cover letter that would increase the chances of getting hired
+  - Use shorter paragraphs (one tech-focused, one focused on transferable (soft) skills)
+  - Avoid beginning all sentences with the word “I” – this is very common but reads as too self-focused
+  - Avoid lack of detail when describing a technical project (e.g., no indication of languages used, complexity of the project, testing, development cycle used if team project)
+  - Avoid incoherent or rambling sentences that ultimately say nothing (i.e., no skill or experience is addressed)  
 
   __EXAMPLE_INTRODUCTION_PARAGRAPH__
   As a second-year Software Engineering co-op student at the University of Guelph, I am excited to learn about your mission of empowering law enforcement with technology, and I am eager to contribute to that purpose with my skills in software development and problem-solving. I am thrilled to apply for the Software Developer position at Magnet Forensics.
