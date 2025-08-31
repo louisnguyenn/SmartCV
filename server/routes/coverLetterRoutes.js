@@ -1,5 +1,5 @@
 import express from 'express';
-import { createCoverLetter } from "../controllers/coverLetterController.js";
+import { createCoverLetter } from '../controllers/coverLetterController.js';
 
 const router = express.Router();
 

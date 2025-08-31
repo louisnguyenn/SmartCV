@@ -1,13 +1,6 @@
 import fs from 'fs';
 
-export function createFile(
-	res,
-	content,
-	fileName,
-	firstName = 'Resume',
-	lastName = 'User'
-) {
-
+export function createFile(res, content, fileName) {
 	fs.writeFile(fileName, content, (writeErr) => {
 		if (writeErr) {
 			console.error('Error writing file:', writeErr);

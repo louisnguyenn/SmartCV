@@ -11,14 +11,14 @@ export const createResume = async (req, res) => {
 	console.log('Creating resume with data:', req.body);
 
 	try {
-		const generatedResume = await fetchGemini(req.body, RESUME_PROMPT, GOOD_RESUME, BAD_RESUME, TEMPLATE_RESUME); // calling createResume function and wait for the result
-		await createFile(
-			res,
-			generatedResume,
-			fileName,
-			req.body.firstName,
-			req.body.lastName
-		);
+		const generatedResume = await fetchGemini(
+			req.body,
+			RESUME_PROMPT,
+			GOOD_RESUME,
+			BAD_RESUME,
+			TEMPLATE_RESUME
+		); // calling createResume function and wait for the result
+		await createFile(res, generatedResume, fileName);
 	} catch (error) {
 		console.error('❌ Error generating resume:', error);
 		res.status(500).json({
