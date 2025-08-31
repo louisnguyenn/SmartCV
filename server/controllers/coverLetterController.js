@@ -21,14 +21,14 @@ export const createCoverLetter = async (req, res) => {
 			COVER_LETTER_EXAMPLE,
 			'',
 			''
-		); // calling createResume function and wait for the result
+		);
 		await createFile(res, generatedCoverLetter, fileName);
 	} catch (error) {
-		console.error('Error generating resume:', error);
+		console.error('Error generating cover letter:', error);
 		res.status(500).json({
 			success: false,
-			error: 'Failed to generate resume',
-			message: 'Resume creation failed',
+			error: 'Failed to generate cover letter',
+			message: 'Cover letter creation failed',
 		});
 	}
 };
