@@ -52,6 +52,49 @@ export const CreateResume = () => {
 		projects: [{ name: '', technologies: '', description: '', link: '' }],
 	});
 
+	async function clear() {
+		setFormData({
+			// Personal Info
+			firstName: '',
+			lastName: '',
+			email: '',
+			phone: '',
+			linkedin: '',
+			github: '',
+
+			// Skills
+			languages: '',
+			frameworks: '',
+			tools: '',
+
+			// Education
+			education: [
+				{
+					school: '',
+					degree: '',
+					year: '',
+					gpa: '',
+					coursework: '',
+					awards: '',
+				},
+			],
+
+			// Experience
+			experience: [
+				{
+					company: '',
+					position: '',
+					startDate: '',
+					endDate: '',
+					description: '',
+				},
+			],
+
+			// Projects
+			projects: [{ name: '', technologies: '', description: '', link: '' }],
+		});
+	}
+
 	const handleInputChange = (field, value) => {
 		setFormData((prev) => ({ ...prev, [field]: value }));
 	};
@@ -784,7 +827,14 @@ export const CreateResume = () => {
 								))}
 							</section>
 
-							<div className="flex justify-end">
+							<div className="flex gap-2 justify-end">
+								<button
+									type="button"
+									onClick={clear}
+									className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-emerald-700 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 cursor-pointer"
+								>
+									Clear
+								</button>
 								<button
 									type="submit"
 									disabled={loading}

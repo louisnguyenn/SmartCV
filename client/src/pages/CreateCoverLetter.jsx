@@ -32,6 +32,36 @@ export const CreateCoverLetter = () => {
 		description: [{ description: '' }],
 	});
 
+	async function clear() {
+		setFormData({
+			// Personal Info
+			firstName: '',
+			lastName: '',
+			email: '',
+			phone: '',
+			linkedin: '',
+			address: '',
+
+			// Employer Info
+			empfirstName: '',
+			emplastName: '',
+			empcompany: '',
+			empposition: '',
+			empaddress: '',
+			empcity: '',
+
+			// job description to tailor cover letter
+			jobdescription: [
+				{
+					description: '',
+				},
+			],
+
+			// personal description
+			description: [{ description: '' }],
+		});
+	}
+
 	const handleInputChange = (field, value) => {
 		setFormData((prev) => ({ ...prev, [field]: value }));
 	};
@@ -327,7 +357,7 @@ export const CreateCoverLetter = () => {
 									<div className="flex items-center">
 										<Briefcase className="h-5 w-5 text-emerald-600 mr-2" />
 										<h3 className="text-lg font-semibold text-gray-900">
-											Job Description
+											Job Description <span className="text-red-500">*</span>
 										</h3>
 									</div>
 								</div>
@@ -363,7 +393,7 @@ export const CreateCoverLetter = () => {
 									<div className="flex items-center">
 										<UserRoundPen className="h-5 w-5 text-emerald-600 mr-2" />
 										<h3 className="text-lg font-semibold text-gray-900">
-											Personal Description
+											Personal Description <span className="text-red-500">*</span>
 										</h3>
 									</div>
 								</div>
@@ -394,7 +424,14 @@ export const CreateCoverLetter = () => {
 								))}
 							</section>
 
-							<div className="flex justify-end">
+							<div className="flex gap-2 justify-end">
+								<button
+									type="button"
+									onClick={clear}
+									className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-emerald-700 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 cursor-pointer"
+								>
+									Clear
+								</button>
 								<button
 									type="submit"
 									disabled={loading}
