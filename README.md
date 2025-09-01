@@ -29,6 +29,7 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 ### Backend
 - Express.js
 - Gemini API
+- File System module (fs)
 
 ---
 
