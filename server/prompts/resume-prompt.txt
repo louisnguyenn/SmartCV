@@ -10,7 +10,6 @@
   - Do not change any of the existing comments already in the template
   - You must follow the template, do not add any additional headers and columns
   - Do not change the formatting and margins of the template
-  - The words must be professional, impactful, and in past tense
   - Put the technical skills and any quantities in bold
   - The resume sections must follow this order:
       Education
@@ -20,9 +19,8 @@
       Technical Volunteer/Extra-Curricular Experiences (i.e., Code camps, hackathons, student clubs, coding challenges, etc.), if possible
       Work/Volunteer Experiences (non-technical), if possible
       Extra-Curriculars Experiences (non-technical), if possible
-  - Fill as much white space as you can in the resume. Ensure all bullet points are exact one sentence long to avoid white space at the end of the sentence
+  - Fill as much white space as you can. Ensure all bullet points are exact one sentence long to avoid white space at the end of the sentence
   - Ensure all spelling and punctuation is correct and all bullet points is clear and easy to understand
-  - In the projects section, it is not required to add the date
 
   When writing bullet points, follow these guidelines and rules:
   - Write in the past-tense (“ed” verbs) for past experiences; write in present-tense if experience is current;
