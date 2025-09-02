@@ -1,5 +1,9 @@
 import { readFileSync } from 'fs';
 import { fetchGemini } from '../services/geminiService.js';
+import multer from 'multer';
+import pdf from 'pdf-parse';
+import mammoth from 'mammoth';
+import path from 'path';
 
 export const atsScan = async (req, res) => {
 	const ATS_PROMPT = readFileSync('./prompts/atsscan-prompt.txt', 'utf8');
