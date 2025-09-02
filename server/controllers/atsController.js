@@ -1,3 +1,6 @@
+import { readFileSync } from 'fs';
+import { fetchGemini } from '../services/geminiService.js';
+
 export const atsScan = async (req, res) => {
 	const ATS_PROMPT = readFileSync('./prompts/atsscan-prompt.txt', 'utf8');
 	console.log('ATS scanning resume:', req.body);
