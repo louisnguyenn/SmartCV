@@ -2,7 +2,140 @@ import { Navbar } from '../components/Navbar';
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Upload, FileText, AlertCircle } from 'lucide-react';
+import {
+	Upload,
+	FileText,
+	AlertCircle,
+	X,
+	CheckCircle,
+	TrendingUp,
+} from 'lucide-react';
+
+const ATSResultsPopup = ({ isOpen, onClose, results }) => {
+	if (!isOpen) return null;
+
+	const getScoreColor = (score) => {
+		if (typeof score === 'number') {
+			if (score >= 80) return 'text-green-600';
+			if (score >= 60) return 'text-yellow-600';
+			return 'text-red-600';
+		}
+		return 'text-gray-600';
+	};
+
+	const getScoreBackground = (score) => {
+		if (typeof score === 'number') {
+			if (score >= 80) return 'bg-green-100';
+			if (score >= 60) return 'bg-yellow-100';
+			return 'bg-red-100';
+		}
+		return 'bg-gray-100';
+	};
+
+	return (
+		<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+			<div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[80vh] overflow-hidden">
+				<div className="flex items-center justify-between p-6 border-b border-gray-200">
+					<div className="flex items-center">
+						<TrendingUp className="h-6 w-6 text-emerald-600 mr-2" />
+						<h2 className="text-xl font-semibold text-gray-900">
+							ATS Scan Results
+						</h2>
+					</div>
+					<button
+						onClick={onClose}
+						className="text-gray-400 hover:text-gray-600 transition-colors"
+					>
+						<X className="h-6 w-6" />
+					</button>
+				</div>
+
+				<div className="p-6 overflow-y-auto max-h-[60vh]">
+					<div
+						className={`${getScoreBackground(
+							results.atsScore
+						)} rounded-lg p-6 mb-6`}
+					>
+						<div className="text-center">
+							<h3 className="text-lg font-medium text-gray-900 mb-2">
+								ATS Compatibility Score
+							</h3>
+							<div
+								className={`text-4xl font-bold ${getScoreColor(
+									results.atsScore
+								)} mb-2`}
+							>
+								{typeof results.atsScore === 'number'
+									? `${results.atsScore}/100`
+									: results.atsScore}
+							</div>
+							<p className="text-sm text-gray-600">
+								{typeof results.atsScore === 'number'
+									? results.atsScore >= 80
+										? 'Excellent - Your resume should pass most ATS systems'
+										: results.atsScore >= 60
+										? 'Good - Some improvements recommended'
+										: 'Needs Improvement - Several issues detected'
+									: 'Score could not be determined'}
+							</p>
+						</div>
+					</div>
+
+					<div className="mb-6">
+						<h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+							<CheckCircle className="h-5 w-5 text-emerald-600 mr-2" />
+							Recommendations
+						</h3>
+
+						{results.recommendations && results.recommendations.length > 0 ? (
+							<div className="space-y-3">
+								{results.recommendations.map((rec, index) => (
+									<div
+										key={index}
+										className="flex items-start bg-gray-50 rounded-lg p-3"
+									>
+										<div className="flex-shrink-0 w-6 h-6 bg-emerald-600 text-white text-xs font-bold rounded-full flex items-center justify-center mr-3 mt-0.5">
+											{index + 1}
+										</div>
+										<p className="text-gray-700 text-sm leading-relaxed">
+											{rec}
+										</p>
+									</div>
+								))}
+							</div>
+						) : (
+							<p className="text-gray-500 italic">
+								No specific recommendations available.
+							</p>
+						)}
+					</div>
+
+					{results.analysis && (
+						<div>
+							<h3 className="text-lg font-semibold text-gray-900 mb-3">
+								Detailed Analysis
+							</h3>
+							<div className="bg-gray-50 rounded-lg p-4">
+								<pre className="text-sm text-gray-700 whitespace-pre-wrap font-mono">
+									{results.analysis}
+								</pre>
+							</div>
+						</div>
+					)}
+				</div>
+
+				<div className="flex justify-end p-6 border-t border-gray-200 bg-gray-50">
+					<button
+						onClick={onClose}
+						className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+					>
+						Close
+					</button>
+				</div>
+			</div>
+		</div>
+	);
+};
 
 export const ATSScan = () => {
 	// checking backend health
@@ -22,42 +155,60 @@ export const ATSScan = () => {
 	const [loading, setLoading] = useState(false);
 	const [result, setResult] = useState(null);
 	const [error, setError] = useState(null);
+	const [showPopup, setShowPopup] = useState(false);
 
-	const onDrop = useCallback((acceptedFiles) => {
-		acceptedFiles.forEach((file) => {
-			const reader = new FileReader();
+	const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
+		if (rejectedFiles.length > 0) {
+			setError('Please upload a valid text file (.txt)');
+			return;
+		}
 
-			reader.onabort = () => console.log('File reading was aborted');
-			reader.onerror = () => console.log('File reading has failed');
-			reader.onload = () => {
-				// call fetch api function to send the file to backend
-				fetchAPI(file);
-				const binaryStr = reader.result;
-				console.log(binaryStr);
-			};
-			reader.readAsArrayBuffer(file);
-		});
+		setError(null);
+		setResult(null);
+
+		if (acceptedFiles.length > 0) {
+			fetchAPI(acceptedFiles[0]);
+		}
 	}, []);
-	const { getRootProps, getInputProps } = useDropzone({ onDrop });
+
+	const { getRootProps, getInputProps, isDragActive, isDragReject } =
+		useDropzone({
+			onDrop,
+			accept: {
+				'text/plain': ['.txt'],
+			},
+			maxFiles: 1,
+			multiple: false,
+		});
 
 	async function fetchAPI(file) {
 		setLoading(true);
 		setError(null);
 
 		try {
+			// ceate FormData to send file properly
+			const formData = new FormData();
+			formData.append('resume', file);
+
 			const response = await axios.post(
 				'http://localhost:3000/api/atsscan',
-				file,
-				{
-					responseType: 'blob',
-				}
+				formData
 			);
 
-			console.log('ATS Scan Result:', response.data);
-			setResult(response.data);
+			const data = response.data;
+
+			if (data.success) {
+				console.log('ATS Scan Result:', data);
+				setResult(data);
+				setShowPopup(true); // show the popup with results
+			} else {
+				setError(data.message || 'Failed to analyze resume');
+			}
 		} catch (error) {
 			console.error('Error scanning resume:', error);
-			setError('Failed to analyze resume. Please try again.');
+			setError(
+				'Failed to analyze resume. Please check your connection and try again.'
+			);
 		} finally {
 			setLoading(false);
 		}
@@ -85,9 +236,12 @@ export const ATSScan = () => {
 									: isDragReject
 									? 'border-red-500 bg-red-50'
 									: 'border-gray-300 hover:border-emerald-400 hover:bg-gray-50'
-							}`}
+							} ${loading ? 'pointer-events-none opacity-50' : ''}`}
 						>
-							<input {...getInputProps()} />
+							<input
+								{...getInputProps()}
+								disabled={loading}
+							/>
 
 							<div className="text-center">
 								{loading ? (
@@ -105,7 +259,9 @@ export const ATSScan = () => {
 								) : isDragReject ? (
 									<div className="flex flex-col items-center">
 										<AlertCircle className="h-8 w-8 text-red-600 mb-2" />
-										<p className="text-red-600">Invalid file type</p>
+										<p className="text-red-600">
+											Only .txt files are supported
+										</p>
 									</div>
 								) : (
 									<div className="flex flex-col items-center">
@@ -117,7 +273,7 @@ export const ATSScan = () => {
 											</span>
 										</p>
 										<p className="text-sm text-gray-400 mt-1">
-											Supports PDF, DOC, DOCX files only
+											Supports .txt files only
 										</p>
 									</div>
 								)}
@@ -133,19 +289,31 @@ export const ATSScan = () => {
 							</div>
 						)}
 
-						{result && (
-							<div className="bg-emerald-50 border border-emerald-200 rounded-md p-4">
-								<h3 className="text-lg font-semibold text-emerald-800 mb-2">
-									ATS Scan Results
-								</h3>
-								<pre className="text-sm text-emerald-700 whitespace-pre-wrap">
-									{JSON.stringify(result, null, 2)}
-								</pre>
-							</div>
-						)}
+						<div className="bg-blue-50 border border-blue-200 rounded-md p-4">
+							<h3 className="text-sm font-medium text-blue-800 mb-2">
+								How to prepare your resume:
+							</h3>
+							<ul className="text-sm text-blue-700 space-y-1">
+								<li>
+									• Copy your resume content and paste it into a .txt file
+								</li>
+								<li>
+									• Include all sections: education, skills, experience,
+									projects, and other additional sections
+								</li>
+								<li>• Keep the original formatting as much as possible</li>
+								<li>• Save the file with a .txt extension</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<ATSResultsPopup
+				isOpen={showPopup}
+				onClose={() => setShowPopup(false)}
+				results={result || {}}
+			/>
 		</div>
 	);
 };

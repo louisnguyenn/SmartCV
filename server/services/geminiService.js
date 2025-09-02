@@ -4,9 +4,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 const API_KEY = process.env.GEMINI_API_KEY;
 
-// create resume function (this function will callthe gemini api to create our resume)
+// create resume function (this function will call the gemini api to create our resume)
 export async function fetchGemini(
 	scan = false,
+	formData,
 	prompt,
 	good_example,
 	bad_example,
@@ -53,9 +54,6 @@ export async function fetchGemini(
 							{
 								text:
 									prompt +
-									good_example +
-									bad_example +
-									template +
 									'\n\nForm data:\n' +
 									JSON.stringify(formData, null, 2),
 							},
@@ -69,7 +67,7 @@ export async function fetchGemini(
 			// extract the generated text from Gemini's response
 			const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
-			return generatedText || 'Content generation failed';
+			return generatedText || 'ATS scanning failed';
 		} catch (err) {
 			console.error('Gemini API Error:', err.response?.data || err.message);
 			throw new Error('Failed to generate content');
