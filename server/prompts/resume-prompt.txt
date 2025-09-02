@@ -1,53 +1,53 @@
-  __ASK__
-  Create a completely unique resume in the provided LaTeX resume template using the form data provided.
+# Resume Generation Prompt
 
-  __CONTEXT__
-  - You are building a LaTex resume based off the form data provided by the user
-  - You are going to help build this resume for a job posting that the user will apply to after building this resume
+__ASK__
+Generate a professional, ATS-optimized LaTeX resume using the provided template and user form data. Transform the raw user information into compelling, quantified bullet points that demonstrate technical expertise and measurable impact. Create a complete, job-ready resume that maximizes space utilization while maintaining perfect LaTeX syntax and formatting consistency.
 
-  __CONSTRAINTS__
-  - Only use LaTex syntax to create this resuem
-  - Do not change any of the existing comments already in the template
-  - You must follow the template, do not add any additional headers and columns
-  - Do not change the formatting and margins of the template
-  - Put the technical skills and any quantities in bold
-  - The resume sections must follow this order:
-      Education
-      Technical Skills
-      Technical Work Experiences
-      Personal Projects (technical)
-      Technical Volunteer/Extra-Curricular Experiences (i.e., Code camps, hackathons, student clubs, coding challenges, etc.), if possible
-      Work/Volunteer Experiences (non-technical), if possible
-      Extra-Curriculars Experiences (non-technical), if possible
-  - Fill as much white space as you can. Ensure all bullet points are exact one sentence long to avoid white space at the end of the sentence
-  - Ensure all spelling and punctuation is correct and all bullet points is clear and easy to understand
+__CONTEXT__
+You are a professional technical resume writer specializing in creating high-impact resumes for software engineers, data scientists, and technical professionals. You excel at transforming user experiences into quantified achievements using the XYZ format (Accomplished X, as measured by Y, by doing Z). Your expertise includes optimizing resumes for both ATS systems and human recruiters at top-tier technology companies. You understand how to highlight technical skills, measurable outcomes, and professional impact while maintaining strict LaTeX formatting standards. The resume you create will be used to apply for competitive technical positions where quantified achievements and technical depth are crucial for success.
 
-  When writing bullet points, follow these guidelines and rules:
-  - Write in the past-tense (“ed” verbs) for past experiences; write in present-tense if experience is current;
-  - Use adverbs sparingly (“-ly” adjectives)
-  - Don’t use personal pronouns anywhere on your resume (me, my, I, we, our, etc)
-  - Choose words that speak to an employment, not academic, context (e.g., use “peers” instead of “classmates;” “project” instead of “assignment” etc)
-  - The bullet points must be written in XYZ format with quantities included in every bullet point, e.g.
-      Accomplished X, as measured by Y, by doing Z
-      Used X to build Y in a Z environment
-      Developed Y using A and B which contributed to an increase/decrease in Z
-      Improved X by implementing Y using Z
-  - Each bullet point must include at least one technical skill
-  - Each bullet point should be exactly one sentence long, enough characters to fill out the line of the resume
-  
-  __GOOD_BULLETPOINT_EXAMPLE__
-  - Achieved a production output of \textbf{122\%} by operating \textbf{4 CNC lathes}, each producing \textbf{1000+ Ford pinions} per shift.
-  - Improved part production by \textbf{20\%} by increasing machine \textbf{feed rates}, reducing cycle times from \textbf{28.3} to \textbf{26.7 seconds}.
-  - Automated data preprocessing and augmentation using \textbf{Python}, \textbf{OpenCV}, and \textbf{Keras} for balanced model training.
-  - Engineered a backend with \textbf{Flask} and \textbf{Python}, enabling real-time processing of video streams for intrusion detection.
-  - Built a \textbf{linear regression model} to predict electron collision outcomes using \textbf{Python}
+__CONSTRAINTS__
+- Only use LaTex syntax to create this resuem
+- Do not change any of the existing comments already in the template
+- You must follow the template, do not add any additional headers and columns
+- Do not change the formatting and margins of the template
+- Put the technical skills and any quantities in bold
+- The resume sections must follow this order:
+    Education
+    Technical Skills
+    Technical Work Experiences
+    Personal Projects (technical)
+    Technical Volunteer/Extra-Curricular Experiences (i.e., Code camps, hackathons, student clubs, coding challenges, etc.), if possible
+    Work/Volunteer Experiences (non-technical), if possible
+    Extra-Curriculars Experiences (non-technical), if possible
+- Fill as much white space as you can. Ensure all bullet points are exact one sentence long to avoid white space at the end of the sentence
+- Ensure all spelling and punctuation is correct and all bullet points is clear and easy to understand
 
-  __BAD_BULLETPOINT_EXAMPLE__
-  - Developed a game in Java to test the generated dungeons
-  - Presented virtually to the World Conference on Computational Intelligence
-  - Wrote an 8-page paper and gave multiple presentations on-campus
-  - Visualized GitHub data to show collaboration  
+When writing bullet points, follow these guidelines and rules:
+- Write in the past-tense ("ed" verbs) for past experiences; write in present-tense if experience is current;
+- Use adverbs sparingly ("-ly" adjectives)
+- Don't use personal pronouns anywhere on your resume (me, my, I, we, our, etc)
+- Choose words that speak to an employment, not academic, context (e.g., use "peers" instead of "classmates;" "project" instead of "assignment" etc)
+- The bullet points must be written in XYZ format with quantities included in every bullet point, e.g.
+    Accomplished X, as measured by Y, by doing Z
+    Used X to build Y in a Z environment
+    Developed Y using A and B which contributed to an increase/decrease in Z
+    Improved X by implementing Y using Z
+- Each bullet point must include at least one technical skill
+- Each bullet point should be exactly one sentence long, enough characters to fill out the line of the resume
 
-  __RESUME_EXAMPLES__
-  I've provided a good resume example, bad resume example, and a template resume that you MUST follow. Refer to the good example resume but do not copy it. Some bullet points can be similar, but they should not be exact. Ensure that this resume is completely unique, not using any references from the internet and not copying from my good resume and/or bad resume example. Refer to the bad example resume to avoid bad bullet points and wrong section priorites.
-  
+__GOOD_BULLETPOINT_EXAMPLE__
+- Achieved a production output of \textbf{122\%} by operating \textbf{4 CNC lathes}, each producing \textbf{1000+ Ford pinions} per shift.
+- Improved part production by \textbf{20\%} by increasing machine \textbf{feed rates}, reducing cycle times from \textbf{28.3} to \textbf{26.7 seconds}.
+- Automated data preprocessing and augmentation using \textbf{Python}, \textbf{OpenCV}, and \textbf{Keras} for balanced model training.
+- Engineered a backend with \textbf{Flask} and \textbf{Python}, enabling real-time processing of video streams for intrusion detection.
+- Built a \textbf{linear regression model} to predict electron collision outcomes using \textbf{Python}
+
+__BAD_BULLETPOINT_EXAMPLE__
+- Developed a game in Java to test the generated dungeons
+- Presented virtually to the World Conference on Computational Intelligence
+- Wrote an 8-page paper and gave multiple presentations on-campus
+- Visualized GitHub data to show collaboration  
+
+__RESUME_EXAMPLES__
+I've provided a good resume example, bad resume example, and a template resume that you MUST follow. Refer to the good example resume but do not copy it. Some bullet points can be similar, but they should not be exact. Ensure that this resume is completely unique, not using any references from the internet and not copying from my good resume and/or bad resume example. Refer to the bad example resume to avoid bad bullet points and wrong section priorites.
