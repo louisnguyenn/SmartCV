@@ -20,6 +20,7 @@ export const createCoverLetter = async (req, res) => {
 
 	try {
 		const generatedCoverLetter = await fetchGemini(
+			false,
 			req.body,
 			COVER_LETTER_PROMPT,
 			COVER_LETTER_GOOD_EXAMPLE,

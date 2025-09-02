@@ -23,61 +23,33 @@ export const ATSScan = () => {
 	const [result, setResult] = useState(null);
 	const [error, setError] = useState(null);
 
-	const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
-		// Handle rejected files
-		if (rejectedFiles.length > 0) {
-			setError('Please upload a valid resume file (PDF, DOC, or DOCX)');
-			return;
-		}
-
-		setError(null);
-
+	const onDrop = useCallback((acceptedFiles) => {
 		acceptedFiles.forEach((file) => {
 			const reader = new FileReader();
 
 			reader.onabort = () => console.log('File reading was aborted');
-			reader.onerror = () => {
-				console.log('File reading has failed');
-				setError('Failed to read the file');
-			};
+			reader.onerror = () => console.log('File reading has failed');
 			reader.onload = () => {
-				// send the file to the backend
+				// call fetch api function to send the file to backend
 				fetchAPI(file);
+				const binaryStr = reader.result;
+				console.log(binaryStr);
 			};
-
 			reader.readAsArrayBuffer(file);
 		});
 	}, []);
-
-	const { getRootProps, getInputProps, isDragActive, isDragReject } =
-		useDropzone({
-			onDrop,
-			accept: {
-				'application/pdf': ['.pdf'],
-				'application/msword': ['.doc'],
-				'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-					['.docx'],
-			},
-			maxFiles: 1,
-			multiple: false,
-		});
+	const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
 	async function fetchAPI(file) {
 		setLoading(true);
 		setError(null);
 
 		try {
-			// create FormData to send file
-			const formData = new FormData();
-			formData.append('resume', file);
-
 			const response = await axios.post(
 				'http://localhost:3000/api/atsscan',
-				formData,
+				file,
 				{
-					headers: {
-						'Content-Type': 'multipart/form-data',
-					},
+					responseType: 'blob',
 				}
 			);
 

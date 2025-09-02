@@ -13,6 +13,7 @@ export const createResume = async (req, res) => {
 
 	try {
 		const generatedResume = await fetchGemini(
+			false,
 			req.body,
 			RESUME_PROMPT,
 			GOOD_RESUME,

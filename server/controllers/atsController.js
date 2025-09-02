@@ -1,16 +1,20 @@
 import { readFileSync } from 'fs';
 import { fetchGemini } from '../services/geminiService.js';
-import multer from 'multer';
-import pdf from 'pdf-parse';
-import mammoth from 'mammoth';
-import path from 'path';
 
 export const atsScan = async (req, res) => {
 	const ATS_PROMPT = readFileSync('./prompts/atsscan-prompt.txt', 'utf8');
+	let scan = true;
 	console.log('ATS scanning resume:', req.body);
 
 	try {
-		const scanResume = await fetchGemini(req.body, ATS_PROMPT, '', '', '');
+		const scanResume = await fetchGemini(
+			scan,
+			req.body,
+			ATS_PROMPT,
+			'',
+			'',
+			''
+		);
 	} catch (error) {
 		console.error('Error scanning resume:', error);
 		res.status(500).json({
