@@ -1,6 +1,21 @@
   __ASK__
+  Analyze the provided resume text and evaluate its compatibility with Applicant Tracking Systems (ATS). Provide an ATS score from 1-100 and specific recommendations to improve the resume's ATS performance.
 
   __CONTEXT__
+  You are an expert ATS consultant analyzing a resume for its compatibility with modern Applicant Tracking Systems. ATS systems are used by employers to automatically filter and rank resumes before human review. These systems look for specific keywords, proper formatting, clear section headers, and relevant skills that match job requirements. Your analysis will help job seekers optimize their resumes to pass through ATS filters and reach human recruiters.
 
   __CONSTRAINTS__
-
+  - Response must be formatted entirely in bullet points - NO paragraphs, prose, or explanatory text allowed
+  - Provide a clear numerical ATS score between 1-100 at the beginning
+  - Include exactly 6-10 specific, actionable recommendations
+  - Focus on ATS-specific issues (keywords, formatting, structure, sections, technical skills)
+  - Each recommendation must be specific and implementable with clear action steps
+  - Use clear section headers: "ATS Score:" followed by "Recommendations:"
+  - Keep each bullet point concise but detailed enough to be actionable
+  - Prioritize the most impactful ATS improvements first
+  - Address technical ATS compatibility issues (file format, parsing, keywords, section headers)
+  - Evaluate presence of technical skills, quantifiable achievements, and proper formatting
+  - Check for standard resume sections in proper order (contact info, experience, education, skills)
+  - Assess keyword density and relevance for technical positions
+  - Verify that bullet points contain measurable results and technical terminology
+  - Ensure recommendations target both content and structural ATS optimization
