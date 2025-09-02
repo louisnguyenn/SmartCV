@@ -1,6 +1,6 @@
 # 🧠 SmartCV
 
-An AI-powered web app that helps you **create**, **tailor**, and **polish** your resume and cover letter for any job posting. Built with React, Flask, and the Gemini API, SmartCV makes job applications smarter and more personalized, increasing your chances of landing a job.
+An AI-powered web app that helps you **create**, **tailor**, and **polish** your resume and cover letter for any job posting. Built with React, Node.js, Express.js, and the Gemini API, SmartCV makes job applications smarter and more personalized, increasing your chances of landing a job.
 
 <img src='assets/screenshots/home.png'>
 <img src='assets/screenshots/page1.png'>
@@ -32,6 +32,7 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 - Tailwind CSS
 
 ### Backend
+- Node.js
 - Express.js
 - Gemini API
 - File System module (fs)
