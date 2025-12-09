@@ -6,6 +6,8 @@ An AI-powered web app that helps you **create**, **tailor**, and **polish** your
 The frontend is deployed on Vercel.
 The backend is not hosted, so features requiring API requests will not function in the live demo.
 
+Live Demo: [https://smart-cv-git-main-louis-nguyens-projects-7bf4fa77.vercel.app/](https://smart-cv-git-main-louis-nguyens-projects-7bf4fa77.vercel.app/)
+
 <img src='assets/screenshots/home.png'>
 <img src='assets/screenshots/page1.png'>
 <img src='assets/screenshots/page2.png'>
