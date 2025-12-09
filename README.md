@@ -2,12 +2,6 @@
 
 An AI-powered web app that helps you **create**, **tailor**, and **polish** your resume and cover letter for any job posting. Built with React, Node.js, Express.js, and the Gemini API, SmartCV makes job applications smarter and more personalized, increasing your chances of landing a job.
 
-### 🌐 Deployment Notice:
-The frontend is deployed on Vercel.
-The backend is not hosted, so features requiring API requests will not function in the live demo.
-
-Live Demo: [SmartCV](https://smart-cv-khaki.vercel.app/)
-
 <img src='assets/screenshots/home.png'>
 <img src='assets/screenshots/page1.png'>
 <img src='assets/screenshots/page2.png'>
@@ -28,6 +22,14 @@ Live Demo: [SmartCV](https://smart-cv-khaki.vercel.app/)
 
 - 📄 **Downloadable PDFs**  
   Export your resume and cover letter in clean, ATS-friendly formats.
+
+---
+
+## 🌐 Deployment
+The frontend is deployed on Vercel.
+The backend is not hosted, so features requiring API requests will not function in the live demo.
+
+**Live Demo**: [SmartCV](https://smart-cv-khaki.vercel.app/)
 
 ---
 
